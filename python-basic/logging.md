@@ -106,13 +106,11 @@ logger.critical("这是危险")
 
 将进阶版日志封装到类中，可以直接写到文件里。
 
-有一点要注意的是，
-
-settings 中的配置为：
+有一点要注意的是，settings 中的配置为：
 
 ```python
-BASE_DIR = os.path.dirname(os.path.dirname(__file__))
-LOG_DIR = os.path.join(BASE_DIR, 'log')
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))    # 项目根目录
+LOG_DIR = os.path.join(BASE_DIR, 'log')    # 日志文件的存放目录
 ```
 
 日志处理文件的写法为：
@@ -121,7 +119,7 @@ LOG_DIR = os.path.join(BASE_DIR, 'log')
 import logging
 import os
 
-from conf import  settings
+from conf import settings    # 从外部导入 setting.py 文件
 
 
 class LogHandler:
@@ -134,7 +132,7 @@ class LogHandler:
         self.logger.level = 10    # 设置日志记录的级别
         fh.setFormatter(f_str)    # 给文件句柄设置记录内容的格式
         ch.setFormatter(f_str)    # 给中控台设置记录内容的格式
-        if not logger.hasHandlers():    # 防止多次实例化对象，重复添加日志句柄
+        if not self.logger.hasHandlers():    # 防止多次实例化对象，重复添加日志句柄
             self.logger.addHandler(fh)    # 将文件句柄添加到logger对象中
             self.logger.addHandler(ch)    # 将中控台添加到logger对象中
     
