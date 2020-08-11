@@ -10,7 +10,7 @@ css 也称为层叠样式表（Cascading Style Sheet），用来控制 HTML 文�
 
 ```html
 <style>
-    /* 选择器{css属性名称:属性值;css属性名称:属性值;} */
+    /* 选择器{css 属性名称: 属性值; css 属性名称: 属性值;} */
     div{
         /* css注释 */
         width: 200px;
@@ -63,7 +63,7 @@ div{
 
 ```css
 div {width: 100px;}
-标签名称{css属性:值}
+标签名称{css 属性: 值}
 ```
 
 #### id 选择器
@@ -86,15 +86,15 @@ css写法:
 ```css
 html代码:
 <div id="d1" class="c1">
-    李晨浩
+    小豪
 </div>
 
 <div id="d2" class="c2">
-    李海煜
+    小李
 </div>
 
 <div id="d3" class="c1">
-    张建志
+    老张
 </div>
 
 css写法
@@ -110,11 +110,11 @@ css写法
 ```css
 HTML代码
 <div id="d1" class="c1" xx="ss">
-    李晨浩
+    小豪
 </div>
 
 <div id="d2" class="c2" xx="kk">
-    李海煜
+    小李
 </div>
 
 css写法:
@@ -142,22 +142,22 @@ css写法:
 父级下所有后代的样式都会被设置，例如：
 
 ```css
-html代码示例:
+html 代码示例:
 	<div id="d1" class="c1" xx="ss">
         <span>
-            <a href="http://www.chenhao.com">李晨浩</a>
+            <a href="http://www.xiaohao.com">小豪</a>
         </span>
     </div>
 
     <div id="d2" class="c2" xx="kk">
-        <a href="http://www.chenhao.com">李海煜</a>
+        <a href="http://www.xiaoli.com">小李</a>
 
     </div>
 
     <div id="d3" class="c1">
-        张建志
+        老张
     </div>
-    <a href="http://www.chenhao.com">xxxxxxx</a>
+    <a href="http://www.xxxxxxx.com">xxxxxxx</a>
 css代码:
     div a{	
         color:orange; /* 字体颜色 */
@@ -167,10 +167,10 @@ css代码:
 ### 组合选择器（逗号连接）
 
 ```css
-html代码
+html 代码
     <div id="d1" class="c1" xx="ss">
         <span>
-            <a href="http://www.chenhao.com">李晨浩</a>
+            <a href="http://www.xiaohao.com">小豪</a>
         </span>
         <span>
             <span>xxx222</span>
@@ -178,23 +178,21 @@ html代码
     </div>
 
     <div id="d2" class="c2" xx="kk">
-        <a href="http://www.chenhao.com">李海煜</a>
+        <a href="http://www.xiaoli.com">小李</a>
 
     </div>
 
     <div id="d3" class="c1">
-        <a href="">张建志</a>
+        <a href="">老张</a>
     </div>
-    <a href="http://www.chenhao.com">xxxxxxx</a>
+    <a href="http://www.xxxxxxx.com">xxxxxxx</a>
 
-    <span>官人,你好!</span>
+    <span>官人，你好！</span>
     
-css代码: 注意:a标签字体颜色设置,必须找到a标签才能设置
-	#d1 a,#d3 a{
+css 代码: 注意：a 标签字体颜色设置，必须找到 a 标签才能设置
+	#d1 a, #d3 a{
         background-color: pink;
         color:yellow;
     }
 ```
-
-![1572923773022](web-css-basic.assets/1572923773022.png)
 

@@ -1,17 +1,15 @@
-
-
 ## CSS 样式基础
 
 ### 高度宽度
 
 ```css
-html代码
+html 代码
 	<div>
         div1
     </div>
     <span>span1</span>
 
-css写法
+css 写法
 	div{
         height: 100px;
         width: 100px;
@@ -37,26 +35,26 @@ html代码
 css写法
 	font-size: 20px; /* 默认字体大小是16px */
     color:green; /* 字体颜色 */
-    /*font-family: '楷体','宋体'; !* 字体格式 *!*/
+    /* font-family: '楷体', '宋体'; !* 字体格式 *! */
 
-	font-weight: 400;  /* 字体粗细 100-900,默认是400 */
+	font-weight: 400;  /* 字体粗细 100-900，默认是 400 */
 ```
 
 ### 字体对齐
 
 ```css
-html代码
+html 代码
     <div>
         只身赴宴鸡毛装!!!
     </div>
 
-css代码
+css 代码
 	height: 100px;
     width: 200px;
     background-color: yellow;
-    text-align: center;  水平居中
-    /*text-align: right;*/
-    line-height: 100px;  和height高度相同,标签文本垂直居中
+    text-align: center;    /* 水平居中 */
+    /* text-align: right; */
+    line-height: 100px;    /* 和 height 高度相同，标签文本垂直居中 */
 ```
 
 ### 颜色设置
@@ -77,19 +75,19 @@ rgba 和标签透明度 opacity 的区别：
 ### 背景
 
 ```css
-html代码
+html 代码
     <div class="c1">
 
     </div>
 
-css写法
-    /*background-color: #ff746d;*/
-    /*background-color: rgb(155, 255, 236);*/
-    /*background-image: url("fage.png");*/ url写图片路径,也可以是网络地址路径
-    /*background-repeat: no-repeat;*/
-    /*background-repeat: repeat-y;*/
-    /*background-position: right top;*/
-    /*background-position: 100px 50px;*/
+css 写法
+    /* background-color: #ff746d; */
+    /* background-color: rgb(155, 255, 236); */
+    /* background-image: url("fage.png"); */    /* url 写图片路径。也可以是网络地址路径 */
+    /* background-repeat: no-repeat; */
+    /* background-repeat: repeat-y; */
+    /* background-position: right top; */
+    /* background-position: 100px 50px; */
     /* 简写方式 */
     background: #ff0000 url("fage.png") no-repeat right bottom;
 ```
@@ -99,18 +97,18 @@ css写法
 ### 边框
 
 ```css
-html代码
+html 代码
     <div>
         都是同学装鸡毛！
     </div>
-css写法
-    /* 边框简写方式,对四个边框进行设置 */
-    /*border:1px solid red;*/
-    /*border-left: 1px solid green;*/
-    /*border-top: 1px solid blue;*/
-    border-width: 5px;  /*边框宽度*/
-    border-style: dashed;  /*边框样式*/
-    border-color: aqua; /*边框颜色*/
+css 写法
+    /* 边框简写方式，对四个边框进行设置 */
+    /* border: 1px solid red;*/
+    /* border-left: 1px solid green; */
+    /* border-top: 1px solid blue; */
+    border-width: 5px;    /* 边框宽度 */
+    border-style: dashed;    /* 边框样式 */
+    border-color: aqua;    /* 边框颜色 */
 ```
 
 ### 盒子模型
@@ -125,27 +123,27 @@ css写法
 #### 内边距
 
 ```css
-html代码
+html 代码
 	<div>
         英姿飒爽雄鸡装，飞上枝头变凤凰！
     </div>
 
-css写法
+css 写法
     width: 200px;
     height: 100px;
     border: 4px solid red;
-    /*padding: 6px 8px;*/
-    /*padding: 4px 2px 6px 8px;*/
-    /*padding-left: 20px;*/
-    /*padding-top: 20px;*/
-    /*padding-right: 20px;*/
-    /*padding-bottom: 20px;*/
+    /* padding: 6px 8px; */
+    /* padding: 4px 2px 6px 8px; */
+    /* padding-left: 20px; */
+    /* padding-top: 20px; */
+    /* padding-right: 20px; */
+    /* padding-bottom: 20px; */
 ```
 
 #### 外边距
 
 ```css
-html代码
+html 代码
     <div>
         英姿飒爽雄鸡装，飞上枝头变凤凰！
     </div>
@@ -154,7 +152,7 @@ html代码
         </div>
     </div>
 
-css写法
+css 写法
     .c1{
         background-color: red;
         height: 100px;
@@ -166,8 +164,8 @@ css写法
         background-color: green;
         height: 20px;
         width: 20px;
-        /*margin: 10px 15px;*/
-        /*margin-left:5%;  距离左边的距离为父级标签宽度的5%.*/
+        /* margin: 10px 15px; */
+        /* margin-left: 5%; */    /* 距离左边的距离为父级标签宽度的5% */
         margin-left: 20px;
     }
 ```
@@ -182,28 +180,28 @@ display 的几个值：
 - none：设置标签隐藏
 
 ```css
-html代码
+html 代码
     <span>
-        我是span标签
+        我是 span 标签
     </span>
     <div class="c1">
-        鹅鹅鹅,曲项向天歌!
+        鹅鹅鹅，曲项向天歌!
 
     </div>
 
     <div class="c2">
-        拔毛烧开水,铁锅炖大鹅!
+        拔毛烧开水，铁锅炖大鹅!
     </div>
-css写法
+css 写法
 	span{
-            /*display: block;*/
+            /* display: block; */
         }
     .c1{
         background-color: red;
         height: 100px;
         width: 100px;
-        /*display: inline;*/
-        /*display: inline-block;*/
+        /* display: inline; */
+        /* display: inline-block; */
         display: none;
     }
     .c2{
@@ -262,13 +260,13 @@ css样式
 3. 最常用，通过伪元素选择器的方式清除浮动。需要解决塌陷问题的父级标签加上这个类即可：
 
    ```css
-   css样式
-   	.clearfix:after{
+   css 样式
+   	.clearfix: after{
                content: '';
                display: block;
                clear: both;
            }
-   html代码
+   html 代码
        <div class="cc clearfix">
            <!--<div>吟诗作对</div>-->
            <div class="c1"></div>
@@ -280,11 +278,11 @@ css样式
 ### 伪元素选择器
 
 ```css
-html代码
+html 代码
     <div>
     	吟诗作对!	
     </div>
-css写法
+css 写法
     div{
         background-color: pink;
         height: 100px;
@@ -301,19 +299,19 @@ css写法
 #### hover 和 pointer
 
 ```css
-html代码
+html 代码
     <div class="c1">
 
     </div>
 	
-css写法
+css 写法
     .c1{
         background-color: red;
         height: 300px;
         width: 300px;
 
     }
-    .c1:hover{
+    .c1: hover{
         /*background-color: green;*/
         background-image: url("111.png");
         cursor: pointer;
@@ -324,20 +322,20 @@ css写法
 
 ```css
 /* a标签未访问的时候设置效果 */
-a:link{
-    color:yellow;
+a: link{
+    color: yellow;
 }
 /* 鼠标悬浮上去时设置效果 */
-a:hover{
-    color:black;
+a: hover{
+    color: black;
 }
 /* 鼠标左键点击下去的还没有抬起来的时候,设置效果 */
-a:active{
-    color:green;
+a: active{
+    color: green;
 }
 /* 鼠标抬起后,访问过之后设置效果 */
-a:visited{
-    color:purple;
+a: visited{
+    color: purple;
 }
 ```
 
@@ -345,7 +343,7 @@ a:visited{
 
 ```css
 a{
-	text-decoration: none; 去除下划线
+	text-decoration: none;    /* 去除下划线 */
 }
 ```
 
@@ -362,13 +360,13 @@ a{
 - fixed：固定定位，按照浏览器窗口的位置进行移动
 
 ```css
-html代码
+html 代码
     <div class="cc">
         <div class="c1"></div>
         <div class="c2"></div>
     </div>
     <div class="c3"></div>
-css写法:
+css 写法
        body{
             margin: 0;
         }
@@ -382,11 +380,11 @@ css写法:
             background-color: green;
             height: 100px;
             width:100px;
-            /*position: relative; !* 相对定位 *!*/
-            /*left:100px;*/
-            /*top:-100px;*/
-            /*bottom:*/
-            /*right:*/
+            /* position: relative; !* 相对定位 *! */
+            /* left:100px; */
+            /* top:-100px; */
+            /* bottom: */
+            /* right: */
             position: absolute;
             top: 20px;
             left: 80px;
@@ -470,50 +468,50 @@ css写法:
 ```css
 html代码:
     <div class="c1">
-        这是c1的直属文本
+        这是 c1 的直属文本
         <div id="d1" class="c2">
             <!--<span class="c3" id="d3" style="color:black;">-->
             <span class="c3 c4">
-                这是c1的儿子c2标签的文本
+                这是 c1 的儿子 c2 标签的文本
             </span>
         </div>
     </div>
 
 css代码
         div{
-            color:red;
+            color: red;
         }
 
-        /* css属性有继承的概念  权重0*/
-        /* 标签(元素)选择器  权重1*/
-        /* 类选择器  权重10*/
-        /* id选择器  权重100*/
-        /* 内联样式  权重1000*/
-        /* color:green!important; 无敌! */
-		/* 如果优先级相同,按照后面的为准 */
+        /* css 属性有继承的概念  权重0 */
+        /* 标签(元素)选择器  权重1 */
+        /* 类选择器  权重10 */
+        /* id选择器  权重100 */
+        /* 内联样式  权重1000 */
+        /* color: green!important; */    /* 无敌! */
+		/* 如果优先级相同，按照后面的为准 */
 		别忘了,class属性的值可以写多个
 
-        /*#d3{*/
-            /*color:yellow;*/
-        /*}*/
+        /* #d3{ */
+            /* color: yellow; */
+        /* } */
 
         .c3{
             color:blue;
         }
 
-        /*span{*/
-            /*color:green!important;*/
-        /*}*/
+        /* span{ */
+            /* color:green!important; */
+        /* } */
 
         .c4{
-            color:yellow;
+            color: yellow;
         }
 ```
 
 ### hover 的使用
 
 ```css
-HTML代码：
+HTML 代码
     <div class="c1">
         <div class="c2">
 
@@ -521,22 +519,22 @@ HTML代码：
         <div class="c3"></div>
     </div>
 
-css写法：
+css 写法
     .c1{
         background-color: aqua;
         width: 200px;
         height: 200px;
     	}
-    /*.c1:hover{*/
-    /*background-color: red;*/
-    /*}*/
+    /* .c1:hover{ */
+    /* background-color: red; */
+    /* } */
     .c2{
         background-color: yellow;
         height: 40px;
         width: 40px;
         display: none;
     	}
-    .c1:hover .c2{
+    .c1: hover .c2{
         display: block;
     	}
 ```
@@ -546,5 +544,5 @@ css写法：
 ### list-style 控制 ul 列表样式
 
 ```css
-list-style: none;    /*和ul标签的type='none'是一样的 */
+list-style: none;    /* 和 ul 标签的 type='none' 是一样的 */
 ```

@@ -78,7 +78,7 @@ Docker 提供了两个版本：社区版（CE）和企业版（EE）
 
 docker 官方文档：https://docs.docker.com/install/linux/docker-ce/centos/#set-up-the-repository
 
-首先执行下面的命令卸载要版本的 docker，防止有残留会产生冲突：
+首先执行下面的命令卸载老版本的 docker，防止有残留会产生冲突：
 
 ```bash
 yum remove docker \

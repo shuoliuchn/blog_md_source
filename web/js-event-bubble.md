@@ -4,9 +4,9 @@
 
 ### 事件冒泡现象
 
-原生 js 中，因为元素的相互嵌套关系，所以在js的事件处理机制中，实现了事件的传播机制。这种传播机制是由内向往，逐层传递的，这种现象，我们也称之为"事件冒泡"。这种事件冒泡现象有其好处也有坏处，有时候我们需要应用到它来做一些事情，有时候却需要避免它。
+原生 js 中，因为元素的相互嵌套关系，所以在 js 的事件处理机制中，实现了事件的传播机制。这种传播机制是由内向往，逐层传递的，这种现象，我们也称之为"事件冒泡"。这种事件冒泡现象有其好处也有坏处，有时候我们需要应用到它来做一些事情，有时候却需要避免它。
 
-但首先，我们还是要认是它。来看下面这段代码：
+但首先，我们还是要认识它。来看下面这段代码：
 
 ```html
 <!DOCTYPE html>
@@ -94,9 +94,7 @@ let li_tag_list = document.getElementsByTagName('li');
 
 当鼠标点击某个标签时，浏览器会记录下这个点击事件，并查找它所绑定的点击事件。如果没有找到对应的事件，根据事件冒泡的规则，会找到它的上级标签，去看这些外层标签是否有绑定的事件。
 
-于是，对于上面这个例子，如果我们不把事件直接绑定到 li 标签上，而是绑定到它们上一级的 ul 标签。
-
-当 ul 的事件被触发时，我们知道是某个 li 标签被点击了。前面提到，浏览器会记录下这个点击事件，我们可以通过 js 代码接收到这个时间，比如叫做 event。点击到的那个 li 标签，我们可以通过 event.target 获取到（事实上，如果打印 event，会发现也有其他的方式比如 srcElement 和 toElement 也可以获得到目标标签，但是 target 是大家比较认可的，也是大多数浏览器都支持的）。找到了特定的 li 标签，我们就可以对其进行想要的操作了。
+于是，对于上面这个例子，我们可以不把事件直接绑定到 li 标签上，而是绑定到它们上一级的 ul 标签。当 ul 的事件被触发时，我们知道是某个 li 标签被点击了。前面提到，浏览器会记录下这个点击事件，我们可以通过 js 代码接收到这个事件，比如叫做 event。点击到的那个 li 标签，我们可以通过 event.target 获取到（事实上，如果打印 event，会发现也有其他的方式比如 srcElement 和 toElement 也可以获得到目标标签，但是 target 是大家比较认可的，也是大多数浏览器都支持的）。找到了特定的 li 标签，我们就可以对其进行想要的操作了。
 
 这种利用事件冒泡来进行优化的方式，利用给父元素绑定事件，批量管理子元素的同名事件，就叫做"事件委托"。
 
@@ -122,7 +120,7 @@ let li_tag_list = document.getElementsByTagName('li');
 </ul>
 </body>
 <script>
-    // 注释掉的代码是直接吧事件绑定到li标签上，能实现，但是有缺陷
+    // 注释掉的代码是直接把事件绑定到 li 标签上，能实现，但是有缺陷
     // let li_tag_list = document.getElementsByTagName('li');
     // for (let li_tag of li_tag_list) {
     //     li_tag.onclick = function () {
@@ -130,8 +128,8 @@ let li_tag_list = document.getElementsByTagName('li');
     //     }
     // }
     let ul_tag = document.getElementsByTagName('ul')[0];
-    ul_tag.onclick = function (event) {  // 事件的函数都可以接收鼠标点击事件作为参数
-        let li_tag = event.target;    // 获取li标签
+    ul_tag.onclick = function (event) {    // 事件的函数都可以接收鼠标点击事件作为参数
+        let li_tag = event.target;    // 获取 li 标签
         li_tag.style.backgroundColor = 'orange';
     }
 </script>
@@ -184,7 +182,7 @@ let li_tag_list = document.getElementsByTagName('li');
     let div2 = document.getElementsByClassName('c2')[0];
     div2.onclick = function (event) {
         alert('您点击了内层的 c2');
-        event.stopPropagation()    // 只需要接收event参数，再加上这一行代码即可阻止事件冒泡
+        event.stopPropagation()    // 只需要接收 event 参数，再加上这一行代码即可阻止事件冒泡
     };
 
 </script>

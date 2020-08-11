@@ -3,7 +3,7 @@
 ### if 判断
 
 ```javascript
-if (a == 1){  //判断条件写在小括号里面,大括号里面写条件判断成功后的代码内容
+if (a == 1){    // 判断条件写在小括号里面，大括号里面写条件判断成功后的代码内容
 	console.log('1111');
 }
 else{
@@ -32,28 +32,28 @@ else{
 #### 比较运算
 
 ```javascript
-> < == !=  >=  <=   ===  !==
+// > < == !=  >=  <=   ===  !==
 
 var a = 2;
 var b = '2';
-a == b;  true  弱等于
-a === b;  false  强等于
-a != b;  false
-a !== b;   true
+a == b;    // true  弱等于
+a === b;    // false  强等于
+a != b;    // false
+a !== b;    // true
 ```
 
 #### 算术运算
 
 ```javascript
-+  -  * / %   ++  --  
+// +  -  * / %   ++  --  
 ++ 自增 1  
 -- 自减 1
 
 var a = 2;
-a++  先执行逻辑  在+1
-++a  先+1 在执行逻辑
+a++  先执行逻辑，再 + 1
+++a  先 + 1，再执行逻辑
 
-简单示例:
+简单示例：
 	if (++a === 4){
         console.log('xxx');
     }
@@ -70,9 +70,9 @@ a++  先执行逻辑  在+1
 非 !
 ```
 
-### switch判断
+### switch 判断
 
-如果case后面不加break，一旦条件满足，后面的代码全都会被执行，即便后面条件不成立。
+如果 case 后面不加 break，一旦条件满足，后面的代码全都会被执行，即便后面条件不成立。
 
 ```javascript
 var num = 200;
@@ -114,7 +114,7 @@ finally{
 #### for 循环
 
 ```javascript
-for (var i=0;i<100;++i){
+for (var i=0; i<100; ++i){
     console.log(i);  
 };
 
@@ -133,10 +133,10 @@ for (var i of d) {
 for (var i=0; i<d.length; i++){
     console.log(i,d[i]);
 };
-// 循环自定义对象--python字典
+// 循环自定义对象 -- python 字典
 var o = {a: 2, b: 3}
 for (var i in o) {
-    console.log(i, o[i]);  // 不要用d.i来取值
+    console.log(i, o[i]);  // 不要用 d.i 来取值
 }
 ```
 
@@ -144,9 +144,9 @@ for (var i in o) {
 
 ```javascript
 var a = 0;
-while(a<5){
+while(a < 5){
 	a++;
-	if (a===2){
+	if (a === 2){
       continue;
 	}
 	console.log(a);
@@ -164,10 +164,10 @@ var a = '23abc';
 parseInt(a);   23
 
 var a = 'asdfabc';
-parseInt(a); // NAN  -- not a number
-typeof NaN;  // "number"
-NaN === NaN; // false
-NaN == NaN; // false
+parseInt(a);    // NAN  -- not a number
+typeof NaN;    // "number"
+NaN === NaN;    // false
+NaN == NaN;    // false
 ```
 
 ### 函数
@@ -175,17 +175,17 @@ NaN == NaN; // false
 #### 普通函数
 
 ```javascript
-function f1(a,b){
-	return a+b;
+function f1(a, b){
+	return a + b;
 }
-// 执行: 
-f1(1,2) -- 3
-function f1(a,b){
-	return a,b;
+// 执行
+f1(1, 2)    // 3
+function f1(a, b){
+	return a, b;
 };
 
-f1(1,2);
-// 不能返回多个值，只会返回最后一个值:  2
+f1(1, 2);
+// 不能返回多个值，只会返回最后一个值：2
 ```
 
 #### 匿名函数
@@ -198,7 +198,7 @@ var a = function (a,b){
 var d = {'xx':'oo','f':function (a,b){
 	console.log('xxx');
 }};
-// 执行:d.f(1,2);
+// 执行：d.f(1, 2);
 ```
 
 #### 自执行函数
@@ -213,10 +213,10 @@ var d = {'xx':'oo','f':function (a,b){
 
 ```javascript
 var d = {'a':'aa','b':18};
-// 序列化:
-	var d_json = JSON.stringify(d); //python  json.dumps(d);
-// 反序列化:
-	d_json = "{"a":"aa","b":18}"
+// 序列化：
+	var d_json = JSON.stringify(d);    // python：json.dumps(d);
+// 反序列化：
+	d_json = "{"a": "aa", "b": 18}"
 	var reverse_json = JSON.parse(d_json);
 ```
 

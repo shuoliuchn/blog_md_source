@@ -19,14 +19,14 @@
 ```python
 from socket import socket
 skt = socket()
-addr = ('127.0.0.1', 8001)    # 监听本地8001端口
+addr = ('127.0.0.1', 8001)    # 监听本地 8001 端口
 skt.bind(addr)
 skt.listen(5)
 while True:
     conn, client_addr = skt.accept()
     acq = conn.recv(1024).decode()
     print(acq)
-    conn.send(b'HTTP/1.1 200 ok\r\n\r\n')    # http协议的回应格式，表示连接成功
+    conn.send(b'HTTP/1.1 200 ok\r\n\r\n')    # http 协议的回应格式，表示连接成功
     conn.send(b'<h1>Hello World!</h1>')    # 一段浏览器能读懂的语句
     conn.close()
 ```
@@ -72,11 +72,11 @@ HTML 语言是一种超文本标记语言（hypertext mark-up language），通�
 
 ```html
 全封闭标签  <h1 xx='ss'>xxx</h1>  
-标签属性   <h1 xx='ss'>xxx</h1>    xx:属性名  ss:属性值
+标签属性   <h1 xx='ss'>xxx</h1>    xx：属性名  ss：属性值
 自封闭标签  <meta charset="UTF-8">
 ```
 
-### head标签
+### head 标签
 
 #### meta 文档字符编码
 
@@ -101,7 +101,7 @@ HTML 语言是一种超文本标记语言（hypertext mark-up language），通�
     <head>
         <meta charset="UTF-8">
         <title>世上最牛逼的页面标题</title>
-        <meta http-equiv="Refresh" content="2" />    <!--每2秒钟刷新依此页面-->
+        <meta http-equiv="Refresh" content="2" />    <!--每 2 秒钟刷新依此页面-->
     </head>
     <body>
         <h1>这是个栗子，快尼玛给我运行起来。</h1>
@@ -266,7 +266,7 @@ body 标签里面的没有其他标签包裹的内容，就是**普通文本**�
 <h2>二级<br>标题</h2>
 ```
 
-注意点:**所有的回车空格等空白内容都被认为是一个空格**
+注意点：**所有的回车空格等空白内容都被认为是一个空格**
 
 ![1572870402433](web-html-basic.assets/1572870402433.png)
 
@@ -506,7 +506,7 @@ img 标签用来向页面中插入图片，其基本格式为：
     <li>李宇春</li>
 </ol>
 
-<!-- dl标签了解 -->
+<!-- dl 标签了解 -->
 <dl>
     <dt>河北省</dt>
     <dd>邯郸</dd>

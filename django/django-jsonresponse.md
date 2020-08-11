@@ -13,18 +13,18 @@ import json
 from datetime import datetime
 from datetime import date
 
-#对含有日期格式数据的json数据进行转换
+# 对含有日期格式数据的 json 数据进行转换
 class JsonCustomEncoder(json.JSONEncoder):
     def default(self, field):
-        if isinstance(field,datetime):
+        if isinstance(field, datetime):
             return field.strftime('%Y-%m-%d %H:%M:%S')
-        elif isinstance(field,date):
+        elif isinstance(field, date):
             return field.strftime('%Y-%m-%d')
         else:
-            return json.JSONEncoder.default(self,field)
+            return json.JSONEncoder.default(self, field)
 
 d1 = datetime.now()
-dd = json.dumps(d1,cls=JsonCustomEncoder)
+dd = json.dumps(d1, cls=JsonCustomEncoder)
 print(dd)
 ```
 
@@ -44,14 +44,14 @@ Django 封装了 JsonResoponse 类，将其配合 ajax 使用，可以实现传�
 from django.http import JsonResponse
 def data(request):
     if request.method == 'GET':
-        d1 = {'name':'chao','age':18}
+        d1 = {'name': 'chao', 'age': 18}
         # d1_str = json.dumps(d1)
-        # return HttpResponse(d1_str,content_type='application/json')
+        # return HttpResponse(d1_str, content_type='application/json')
         return JsonResponse(d1)  
-    	# 干了上面两步，序列化以及加content_type响应头
-        # 这样，ajax在处理数据时会自动将json数据反序列化
+    	# 干了上面两步，序列化以及加 content_type 响应头
+        # 这样，ajax 在处理数据时会自动将 json 数据反序列化
         # return JsonResponse(d1, safe=False)
-        # 如果要传输的数据不是字典，需要设置参数safe=False
+        # 如果要传输的数据不是字典，需要设置参数 safe=False
 ```
 
 需要注意的是，如果 JsonResponse 的数据不是字典，需要加上 safe 参数，并将值设置为 False。
@@ -59,7 +59,7 @@ def data(request):
 我们在 js 中可以直接接收并使用传递过来的数据，这个 res 就是反序列化之后的数据了，直接可以使用：
 
 ```js
-success:function(res){
+success: function(res){
 	console.log(res)
 } 
 ```

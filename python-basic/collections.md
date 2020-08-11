@@ -25,7 +25,7 @@ print(dic)
 ```python
 from collections import Counter
 lst = [11, 2, 2, 123, 1, 1, 123, 12, 12, 32, 12, 31, 23, 123, 21, 3]
-print(Counter(lst))    # 获取的是Counter字典，可以通过dict方法转换为普通字典
+print(Counter(lst))    # 获取的是 Counter 字典，可以通过 dict 方法转换为普通字典
 ```
 
 输出的结果为：
