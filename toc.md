@@ -155,7 +155,7 @@
 
 ## Hexo
 
-- 即将到来...
+- 使用 Markdown + Hexo 搭建个人博客： [使用 Markdown + Hexo 搭建个人博客系列简介](hexo\introduction.md) |
 
 
 
