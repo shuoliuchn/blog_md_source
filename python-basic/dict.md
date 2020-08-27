@@ -138,7 +138,7 @@ None
 `.clear()` 方法用来清空字典，使用该方法后，会得到一个空字典：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
+dic = {'key': 1, 'aaa': 'bbb'}
 dic.clear()    # 字典是可变数据类型，可以直接用方法来修改，不必重新赋值
 print(dic)
 
@@ -148,21 +148,41 @@ print(dic)
 `.pop()` 方法需要输入想要删除的键作为参数，返回的是被删除的键对应的值：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
+dic = {'key': 1, 'aaa': 'bbb'}
 print(dic.pop('key'))
 ```
+
+需要注意一点，如果要删除的键并不存在于字典中，会报错：
+
+```python
+>>> dic = {'key': 1, 'aaa': 'bbb'}
+>>> dic.pop('bbb')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'bbb'
+```
+
+这时，我们可以给 pop 指定一个默认值，这样如果没有这个键的话，将会返回默认值，而非报错：
+
+```python
+>>> dic = {'key': 1, 'aaa': 'bbb'}
+>>> dic.pop('bbb', 'nothing found!')
+'nothing found!'
+```
+
+这样就可以实现批量处理字典时，如果键存在则删除，如果键不存在则忽略，而不会报错的需求。
 
 `.popitem()` 是随机删除。但是在 Python 3 和最新版本的 Python 2.7 中，默认删除字典的最后一组键值对，返回值为删除掉的键值对元组（注意，是元组，而不是像 `.pop()` 一样放回的是值）：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
+dic = {'key': 1, 'aaa': 'bbb'}
 print(dic.popitem())
 ```
 
 输出的结果为：
 
 ```python
-('dsb', 'alex')
+('aaa', 'bbb')
 ```
 
 与列表不同的是，字典中没有 `remove` 方法。
@@ -170,7 +190,7 @@ print(dic.popitem())
 字典中 `del` 方法的用法和列表十分相似，如果不指定要删除的键，将会删除整个字典：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
+dic = {'key': 1, 'aaa': 'bbb'}
 del dic
 print(dic)
 ```
@@ -187,8 +207,8 @@ NameError: name 'dic' is not defined
 我们也可以通过指定键的方法，删除特定的键值对：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
-del dic['dsb']
+dic = {'key': 1, 'aaa': 'bbb'}
+del dic['aaa']
 print(dic)
 ```
 
@@ -205,22 +225,22 @@ print(dic)
 使用 `dic['键'] = '值'` 进行修改，当字典中存在指定的键时，该键对应的值将会被替换为新的值：
 
 ```python
-dic = {"key":1,"dsb":"alex"}
-dic["dsb"] = "Alex"  # 修改
-dic["ss"] = "Alex"   # 增加
+dic = {'key': 1, 'aaa': 'bbb'}
+dic['aaa'] = 'BBB'  # 修改
+dic['ss'] = 'BBB'   # 增加
 print(dic)
 ```
 
 输出的结果为：
 
 ```python
-{'key': 1, 'dsb': 'Alex', 'ss': 'Alex'}
+{'key': 1, 'aaa': 'BBB', 'ss': 'BBB'}
 ```
 
 `.update()` 方法可以将两个字典合并。`update` 中输入的字典的级别要高于前面的字典。也就是说，如果新输入的键已经在就字典中存在，该键对应的新值将对替换旧值：
 
 ```python
-dic = {'key': 1, 'dsb':'alex'}
+dic = {'key': 1, 'aaa': 'bbb'}
 dic.update({'key': 2, 'meet': 23})
 print(dic)
 ```
@@ -228,7 +248,7 @@ print(dic)
 输出的结果为：
 
 ```python
-{'key': 2, 'dsb': 'alex', 'meet': 23}
+{'key': 2, 'aaa': 'bbb', 'meet': 23}
 ```
 
 ### 字典的查找
@@ -236,29 +256,29 @@ print(dic)
 字典可以直接通过键来查找值，不过这种查找方式相对“暴力”：当键存在时，返回对应的值；当键不存在时，程序会报错：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
-print(dic['dsb'])	# 返回'dsb'
-print(dic['alex'])	# 程序报错
+dic = {'key': 1, 'aaa': 'bbb'}
+print(dic['aaa'])	# 返回 'bbb'
+print(dic['bbb'])	# 程序报错
 ```
 
 因为这种直接查找的方法当键不存在时会报错，有时我们需要使用 `.get()` 方法：当键存在时，返回键对应的值；当键不存在时，返回 None：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
-print(dic['dsb'])	# 返回'dsb'
-print(dic['alex'])	# 返回None
+dic = {'key': 1, 'aaa': 'bbb'}
+print(dic['aaa'])	# 返回 'bbb'
+print(dic['bbb'])	# 返回 None
 ```
 
 我们甚至可以改变键不存在时的返回值：
 
 ```python
-print(dic.get("alex", "没有找到啊"))
+print(dic.get('bbb', '没有找到啊'))
 ```
 
 我们也可以通过 `.keys()`、`.values()` 和 `.items()` 方法获取字典全部的键、值和键值对。这三个方法的返回值都是一种 `高仿列表`，可以迭代但不支持索引。我们可以通过list函数将返回的高仿列表转化为普通列表：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
+dic = {'key': 1, 'aaa': 'bbb'}
 print(dic.keys())
 print(dic.values())
 print(dic.items())
@@ -270,7 +290,7 @@ print(list(dic.values()))
 也可以使用 for 循环迭代字典，将会遍历字典的键：
 
 ```python
-dic = {'key': 1, 'dsb': 'alex'}
+dic = {'key': 1, 'aaa': 'bbb'}
 for i in dic:
     print(i)
 ```
