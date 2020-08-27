@@ -8,7 +8,7 @@
 
 - 背景讨论与 Python 环境部署
   - **计算机基础：** [计算机基础知识总结](python-basic\computer-basic.md) 
-  - **Python 环境部署：** [Python 的版本选择与安装细节](python-basic\python-installation.md) | [环境变量的配置](python-basic\environment-variable.md) | [后缀名显示方法](python-basic\show-suffix.md) | [Visual Studio Code Python 环境部署](python-basic\vs-code-python.md) | [交互模式下启动 Python 项目](python-basic\bash-python-proj.md) 
+  - **Python 环境部署：** [Python 的版本选择与安装细节](python-basic\python-installation.md) | [环境变量的配置](python-basic\environment-variable.md) | [后缀名显示方法](python-basic\show-suffix.md) | [Visual Studio Code Python 环境部署](python-basic\vs-code-python.md) | [交互模式下启动 Python 项目](python-basic\bash-python-proj.md) | [Ubuntu 系统安装和 Python 开发环境配置](python-basic\ubuntu-python.md)
   - **笔记与博客：** [码云初识](python-basic\gitee-daily.md) | [Markdown 常用语法](python-basic\markdown.md) | [技术博客制作](python-basic\blog-writing.md) | [思维导图](python-basic\mind-map.md) | [排 bug 技巧](python-basic\bug-exclusion.md) 
 - Python 基本语法
   - **Python 中的数据类型：** [变量、常量和注释](python-basic\var-const-com.md) | [整型、字符串和布尔值](python-basic\int-str-bool.md) | [字符串的格式化](python-basic\format.md) | [字符串方法详解](python-basic\str.md) | [f-strings 详解](python-basic\f-strings.md) | [整型数据详述和进制转换](python-basic\int.md) | [列表](python-basic\list.md) | [元组](python-basic\tuple.md) | [字典](python-basic\dict.md) | [集合](python-basic\set.md) | [Python 中表示 False 的方法](python-basic\false.md) | [基础数据类型补充和总结](python-basic\basic-data-type.md) 
@@ -70,7 +70,7 @@
   - Bootstrap：
   - **其他前端工具：** [SweetAlert 弹窗工具](web\web-sweetalart.md) 
 - Vue：
-  - **背景知识：** [JavaScript ES 6 简单常用语法](web\js-es6.md) | [Ubuntu 系统安装和 Python 开发环境配置](web\ubuntu-python.md) | [PyCharm 配置 Vue 开发环境](web\vue-pycharm.md) 
+  - **背景知识：** [JavaScript ES 6 简单常用语法](web\js-es6.md) | [PyCharm 配置 Vue 开发环境](web\vue-pycharm.md) 
   - **Vue 基础知识：** [vue.js 的快速入门使用](web\vue-abc.md) | [Vue 指令系统的常用指令](web\vue-common-command.md) | [Vue 对象提供的属性功能](web\vue-attr-methods.md) | [通过 axios 实现数据请求](web\axios.md) | [JSON](web\json.md) | [ajax 和同源策略](web\ajax-cors.md) | [Vue 的组件化开发](web\vue-component-dev.md) | [Vue Router 的使用](web\vue-router.md) | [Vue 单文件组件的使用](web\vue-file-component.md) | [在组件中使用 axios 获取数据](web\vue-component-axios.md) | [Vue 客户端项目搭建](web\vue-client-build.md) 
 
 
