@@ -552,3 +552,25 @@ bbb
 ![1569405238655](decorator.assets/1569405238655.png)
 
 对于多个装饰器装饰一个函数的情况，只需要记住一个原则：先执行离被装饰函数最近的装饰器。
+
+### 常用装饰器
+
+#### 异常捕获装饰器
+
+```python
+import traceback
+
+def func_try_deco(func):
+    """
+    用于捕获异常的装饰器，装饰过的函数若发生异常会打印异常，但不会终止进程
+    """
+    def inner(*args, **kwargs):
+        try:
+            ret = func(*args, **kwargs)
+        except Exception:
+            print(traceback.format_exc(), flush=True)
+            ret = None
+        return ret
+    return inner
+```
+

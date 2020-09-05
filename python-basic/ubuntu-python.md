@@ -502,6 +502,8 @@ ps -ef | grep sshd    # 查看ssh服务是否运行
 
 ### PyCharm
 
+#### 方法一：直接从 Ubuntu 软件商店下载
+
 ![1555472662852](ubuntu-python.assets/1555472662852-1581426823460.png)
 
 
@@ -523,6 +525,47 @@ ps -ef | grep sshd    # 查看ssh服务是否运行
 
 
 ![1555469066192](ubuntu-python.assets/1555469066192.png)
+
+#### 方法二：使用官网下载安装
+
+官网地址：https://www.jetbrains.com/pycharm/download/#section=linux
+
+下载 Linux 系统下的专业版：
+
+![image-20200831221508130](ubuntu-python.assets/image-20200831221508130.png)
+
+下载的是 `tar.gz` 格式的压缩包。拖放到 Ubuntu 虚拟机中，解压到指定目录。进入到解压好的文件中的 bin 目录，运行命令启动 PyCharm：
+
+```bash
+sure@sure-virtual-machine:/opt/pycharm-2020.2.1/bin$ pwd
+/opt/pycharm-2020.2.1/bin
+sure@sure-virtual-machine:/opt/pycharm-2020.2.1/bin$ sh ./pycharm.sh
+```
+
+然后就跟 Windows 下安装 PyCharm 基本一致了。
+
+我们当然不希望每次都通过命令行启动 PyCharm，所以需要创建一个图标快捷方式。
+
+进入 `/usr/share/applications` 路径，创建文件 `PyCharm.desktop`：
+
+```bash
+sure@sure-virtual-machine:~$ cd /usr/share/applications
+sure@sure-virtual-machine:/usr/share/applications$ sudo vim PyCharm.desktop
+```
+
+在文件中写入如下内容，注意把 Exec 和 Icon 的路径替换为你解压好的 PyCharm 文件所在的位置：
+
+```ini
+[Desktop Entry]
+Type = Application      
+Name = Pycharm
+GenericName = Pycharm
+Comment = Pycharm:The Python IDE
+Exec = "your_dir/pycharm-2020.2.1/bin/pycharm.sh" %f
+Icon = your_dir/pycharm-2020.2.1/bin/pycharm.png
+Terminal = pycharm
+Categories = Pycharm;
+```
 
 合理使用地址：<http://idea.lanyus.com/>
 
