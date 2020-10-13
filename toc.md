@@ -40,6 +40,7 @@
 - MySQL
   - 数据库基本概念： [数据库的基本概念和 Windows 下安装 MySQL](database\database-basic.md) | [MySQL 客户端命令](database\mysql-client-command.md) 
   - MySQL 语法： [数据库、数据表和数据的基本操作](database\mysql-db-tb.md) | [MySQL 中的数据类型](database\mysql-data-type.md) | [MySQL 表的完整性约束](database\mysql-constraint.md) 
+  - Python 操作 MySQL： [mysqlclient 安装](linux\mysqlclient.md) 
 - Redis
   -  [Redis 的安装和配置](database\redis-install.md) | [Redis 的基本使用](database\redis-abc.md) | [Python 操作 Redis](database\redis-python.md) 
 
