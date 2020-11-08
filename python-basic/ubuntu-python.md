@@ -382,13 +382,23 @@ sudo apt install openssh-server
 sudo apt install openssh-client
 ```
 
- 配置 ssh 客户端，去掉 `PasswordAuthentication yes` 前面用于注释的 # 号，保存退出。
+使用命令查看 ssh 安装状态：
+
+```bash
+dpkg -l | grep ssh
+```
+
+若有看到 openssh-server，说明安装成功。 
+
+![image-20201108204353795](ubuntu-python.assets/image-20201108204353795.png)
+
+配置 ssh 客户端，去掉 `PasswordAuthentication yes` 前面用于注释的 # 号，保存退出。
 
 ```bash
 sudo vim /etc/ssh/ssh_config
 ```
 
-配置 ssh 服务端，把 `PermitRootLogin prohibit-password` 取消注释，并将其改成 `PermitRootLogin yes`，保存后退出。
+配置 ssh 服务端，把 `PermitRootLogin prohibit-password` 取消注释，并将其改成 `PermitRootLogin yes`，允许 root 用户以任何认证方式登录，保存后退出。同时，也可以在这里设置 ssh 监听端口，默认为 22。
 
 ```bash
 sudo vim /etc/ssh/sshd_config
@@ -403,8 +413,6 @@ sudo /etc/init.d/ssh stop      # 关闭ssh服务
 
 ps -ef | grep sshd    # 查看ssh服务是否运行
 ```
-
-
 
 ### Chrome
 
@@ -1231,7 +1239,12 @@ sudo docker run hello-world
 
 ![1559068107255](ubuntu-python.assets/1559068107255.png)
 
+此时 Docker 已经安装完毕。不过每次使用 Docker 都需要 sudo 权限才行，首次使用还要输入密码，很繁琐。可通过将当前用户添加到名为 docker 的用户组的方式，免除每次使用 docker 时都要敲 sudo 的限制：
 
+```bash
+sudo groupadd docker    # 创建一个 docker 用户组
+sudo usermod -aG docker $USER    # 添加当前用户到 docker 用户组
+```
 
 ### MongoDB
 

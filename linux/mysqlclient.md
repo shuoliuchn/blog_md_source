@@ -27,8 +27,8 @@ pip install mysqlclient
 Ubuntu 也是安装一些 Mysql 的依赖
 
 ```shell
-apt-get install libmysqlclient-dev
-apt-get install python-dev    # python 3 要装 python3-dev
+sudo apt-get install libmysqlclient-dev
+sudo apt-get install python-dev    # python 3 要装 python3-dev
 pip install mysqlclient
 ```
 

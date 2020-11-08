@@ -24,8 +24,8 @@ sudo docker run \
 ```bash
 sure@ubuntu:~$ sudo docker exec -it redis bash
 root@5ad7242d7bf8:/data# redis-cli
-127.0.0.1:6379> keys *
-(empty array)
+127.0.0.1:6379> ping
+PONG
 ```
 
 PyCharm 安装 Redis 插件。依次点击 `File -> Settings`，打开设置页面。在 Plugins 模块的 Marketplace 标签中搜索 Redis 插件。其余两个是收费的，功能多些。简单连接的话，第二个免费的就足够用了。点击 Install 安装即可。

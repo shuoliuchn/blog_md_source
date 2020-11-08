@@ -6,7 +6,13 @@
 sudo docker pull mysql:5.7
 ```
 
-编辑 `~/mysql/my.cnf`：
+创建 mysql 文件夹，用于存放 MySQL 的配置和数据：
+
+```
+mkdir ~/mysql
+```
+
+编辑 `~/mysql/my.cnf`，向其中写入如下配置：
 
 ```ini
 [mysql]
@@ -52,3 +58,4 @@ sudo apt install mysql-client-core-8.0
 ```bash
 mysql -h 127.0.0.1 -u root -p 123
 ```
+
