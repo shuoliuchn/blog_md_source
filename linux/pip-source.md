@@ -9,14 +9,14 @@
 单次修改，只需在安装命令后面加上 `-i` 参数并指定下载源即可，例如：
 
 ```bash
-pip3 install django==2.2.0 -i https://pypi.douban.com/simple
+pip3 install django==2.2.0 -i https://pypi.tuna.tsinghua.edu.cn/simple
 ```
 
 ### 永久修改下载源
 
 Linux 下，修改 `~/.pip/pip.conf `
 
-注意：如果没有就创建一个文件夹及文件。文件夹要加 `.`，表示是隐藏文件夹。
+注意：如果没有就创建一个文件夹及文件。在 Linux 中，文件夹以 `.` 开头表示是隐藏文件夹。
 
 ```
 mkdir ~/.pip
@@ -32,7 +32,7 @@ index-url = https://pypi.tuna.tsinghua.edu.cn/simple
 trusted-host=mirrors.aliyun.com
 ```
 
-Windows 下，直接在用户目录中创建一个 pi p目录，如：`C:\Users\用户名\pip`，新建文件 `pip.ini`，内容同上。
+Windows 下，直接在用户目录中创建一个 pip 目录，如：`C:\Users\用户名\pip`，新建文件 `pip.ini`，内容同上。
 
 这样，以后每次使用 pip 安装的时候，默认会使用国内的镜像源了。
 
@@ -45,4 +45,4 @@ Windows 下，直接在用户目录中创建一个 pi p目录，如：`C:\Users\
 清华大学             https://pypi.tuna.tsinghua.edu.cn/simple/
 ```
 
-还是豆瓣最好记哈 (￣▽￣)"
+建议使用清华或者阿里的源，豆瓣源我曾经遇到过更新不及时的情况。
