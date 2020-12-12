@@ -75,7 +75,7 @@ yum remove nginx -y    # 卸载nginx，自动处理依赖关系
 
    ```shell
    cd tengine-w.3.2
-   ./configure --prefix=/opt/tengine23/
+   ./configure --prefix=/opt/tengine23
    ```
 
 4. 开始编译安装

@@ -8,7 +8,7 @@
 
 - 背景讨论与 Python 环境部署
   - **计算机基础：** [计算机基础知识总结](python-basic\computer-basic.md) 
-  - **Python 环境部署：** [Python 的版本选择与安装细节](python-basic\python-installation.md) | [环境变量的配置](python-basic\environment-variable.md) | [后缀名显示方法](python-basic\show-suffix.md) | [Visual Studio Code Python 环境部署](python-basic\vs-code-python.md) | [交互模式下启动 Python 项目](python-basic\bash-python-proj.md) | [Ubuntu 系统安装和 Python 开发环境配置](python-basic\ubuntu-python.md)
+  - **Python 环境部署：** [Python 的版本选择与安装细节](python-basic\python-installation.md) | [环境变量的配置](python-basic\environment-variable.md) | [后缀名显示方法](python-basic\show-suffix.md) | [Visual Studio Code Python 环境部署](python-basic\vs-code-python.md) | [交互模式下启动 Python 项目](python-basic\bash-python-proj.md) | [Ubuntu 系统安装和 Python 开发环境配置](python-basic\ubuntu-python.md) | [CentOS 系统 Python 环境搭建](python-basic\centos-python.md) 
   - **笔记与博客：** [码云初识](python-basic\gitee-daily.md) | [Markdown 常用语法](python-basic\markdown.md) | [技术博客制作](python-basic\blog-writing.md) | [思维导图](python-basic\mind-map.md) | [排 bug 技巧](python-basic\bug-exclusion.md) 
 - Python 基本语法
   - **Python 中的数据类型：** [变量、常量和注释](python-basic\var-const-com.md) | [整型、字符串和布尔值](python-basic\int-str-bool.md) | [字符串的格式化](python-basic\format.md) | [字符串方法详解](python-basic\str.md) | [f-strings 详解](python-basic\f-strings.md) | [整型数据详述和进制转换](python-basic\int.md) | [列表](python-basic\list.md) | [元组](python-basic\tuple.md) | [字典](python-basic\dict.md) | [集合](python-basic\set.md) | [Python 中表示 False 的方法](python-basic\false.md) | [基础数据类型补充和总结](python-basic\basic-data-type.md) 
@@ -177,7 +177,8 @@
   - **其他官方文档：** [Python 新式类继承关系的 C3 算法（Python 2.3 的方法解析顺序，MRO）](translation\python-MRO.md) 
   - 第三方包官方文档：
     - **Django REST Framework 官方教程：** [快速入门](translation\django-rest-framework-tutorial\quickstart.md) | [教程 1: 序列化 Serialization](translation\django-rest-framework-tutorial\serialization.md) | [教程 2：请求 Request 和响应 Response](translation\django-rest-framework-tutorial\requests-response.md) | [教程 3：类视图 Class-based View](translation\django-rest-framework-tutorial\class-based-view.md) | [教程 4：认证 Authentication 和权限 Permission](translation\django-rest-framework-tutorial\authentication-permission.md) | [教程 5：关系 Relationships 和超链接 API Hyperlinked APIs](translation\django-rest-framework-tutorial\relationship-hyperlinked-api.md) 
-    - **raspberry-gpio-python模块使用实例：** [安装](translation\raspberry-gpio-python-examples\installing.md)  |  [基础使用](translation\raspberry-gpio-python-examples\gpio-basic-use.md)  |  [输入](translation\raspberry-gpio-python-examples\input.md)  |  [输出](translation\raspberry-gpio-python-examples\output.md)  |  [PWM（脉宽调制）](translation\raspberry-gpio-python-examples\PWM.md) |  [查看 GPIO 通道的功能](translation\raspberry-gpio-python-examples\GPIO-function.md) |  [控制 LED 和开关](translation\raspberry-gpio-python-examples\controlling-LED-and-switch.md) 
+    - **supervisor 官方文档：** [supervisor 的安装](translation\supervisor\installing.md) | [运行 Supervisor](translation\supervisor\running.md) 
+    - **raspberry-gpio-python 模块使用实例：** [安装](translation\raspberry-gpio-python-examples\installing.md)  |  [基础使用](translation\raspberry-gpio-python-examples\gpio-basic-use.md)  |  [输入](translation\raspberry-gpio-python-examples\input.md)  |  [输出](translation\raspberry-gpio-python-examples\output.md)  |  [PWM（脉宽调制）](translation\raspberry-gpio-python-examples\PWM.md) |  [查看 GPIO 通道的功能](translation\raspberry-gpio-python-examples\GPIO-function.md) |  [控制 LED 和开关](translation\raspberry-gpio-python-examples\controlling-LED-and-switch.md) 
   
 - 实用工具官方文档
   

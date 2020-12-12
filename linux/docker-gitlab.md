@@ -16,8 +16,8 @@ export GITLAB_HOME=/srv/gitlab
 
 ```bash
 sudo docker run --detach \
-  --hostname 192.168.31.227 \
-  --publish 443:443 --publish 80:80 --publish 2222:22\
+  --hostname git.sliu.vip \
+  --publish 4443:443 --publish 8080:80 --publish 2222:22\
   --name gitlab \
   --restart always \
   --volume $GITLAB_HOME/config:/etc/gitlab \

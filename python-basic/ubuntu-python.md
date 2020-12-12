@@ -609,11 +609,7 @@ snap revert pycharm-professional
 
 ![1555475945674](ubuntu-python.assets/1555475945674.png)
 
-
-
-
-
-### virtualenv
+### pip 和 virtualenv
 
 默认情况下 Ubuntu18.04 版本已经内置 Python3.6 了。但是没有内置 pip，所以先安装 pip：
 
@@ -627,7 +623,21 @@ sudo apt install python3-pip
 
 ![1555486897199](ubuntu-python.assets/1555486897199-1581426863488.png)
 
+使用国内 pip 源：
 
+```bash
+mkdir ~/.pip
+sudo vim ~/.pip/pip.conf
+```
+
+向其中写入如下内容：
+
+```ini
+[global]
+index-url = https://pypi.tuna.tsinghua.edu.cn/simple
+[install]
+trusted-host=mirrors.aliyun.com
+```
 
 安装虚拟环境：
 

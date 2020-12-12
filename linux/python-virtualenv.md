@@ -47,7 +47,7 @@ Python 的虚拟环境其实就是基于一个编译安装的 Python 3 解释器
 1. 在物理解释器环境下，安装 virualenv：
 
    ```shell
-   [root@localhost ~]# pip3 install -i https://pypi.douban.com/simple virtualenv
+   [root@localhost ~]# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple virtualenv
    ```
 
 2. 通过命令创建虚拟环境，且是一个没有任何模块的，纯净的 Python 3 解释器：
@@ -60,7 +60,7 @@ Python 的虚拟环境其实就是基于一个编译安装的 Python 3 解释器
 
    命令解释：
 
-   - `--no-site-packages`，用来创建干净没有模块的虚拟环境
+   - `--no-site-packages`，用来创建干净没有模块的虚拟环境，这个是默认的，而且最新版本的 virtualenv 已经没有了这个参数，指定了反而会报错
    - `--python=python3`，指定以 Python 3 创建虚拟环境
    - 最后的 `venv1` 是虚拟环境的名字，是一个相对路径，也可以写成绝对路径的形式
    - venv1 虚拟环境将被安装 django 1.11.9 项目
@@ -130,7 +130,7 @@ Python 的虚拟环境其实就是基于一个编译安装的 Python 3 解释器
 2. 安装 django 1.11.9：
 
    ```shell
-   (venv1) [root@localhost venvs]# pip3 install -i https://pypi.douban.com/simple django==1.11.9
+   (venv1) [root@localhost venvs]# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple django==1.11.9
    ```
 
 3. 创建 django 项目，编写 hello 视图函数：
@@ -179,7 +179,7 @@ Python 的虚拟环境其实就是基于一个编译安装的 Python 3 解释器
 3. 安装 django 2.0.1：
 
    ```shell
-   (venv2) [root@localhost venvs]# pip3 install -i https://pypi.douban.com/simple django==2.0.1
+   (venv2) [root@localhost venvs]# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple django==2.0.1
    ```
 
 4. 创建django项目，编写MTV，运行页面，返回"我是来自于venv2的django2项目"。
@@ -198,16 +198,18 @@ virtualenv 的有一个不足之处在于，每次开启虚拟环境之前都要
 
 配置 virtualenvwarapper 的流程为：
 
-1. 要使用 virtualenvwrapper，首先当然要安装它。使用 pip，安装很简单：
+1. 要使用 virtualenvwrapper，首先当然要安装它。使用 pip，安装很简单（virtualenvwrapper 依赖 wheel、pbr 和 virtualenv）：
 
    ```bash
-   pip3 install virtualenvwrapper -i https://pypi.douban.com/simple
+   pip3 install wheel -i https://pypi.tuna.tsinghua.edu.cn/simple
+   pip3 install pbr -i https://pypi.tuna.tsinghua.edu.cn/simple
+   pip3 install virtualenvwrapper -i https://pypi.tuna.tsinghua.edu.cn/simple
    ```
 
    对于 Windows 则要安装：
 
    ```bash
-   pip install virtualenvwrapper-win -i https://pypi.douban.com/simple
+   pip install virtualenvwrapper-win -i https://pypi.tuna.tsinghua.edu.cn/simple
    ```
 
    Windows 系统默认的虚拟环境安装在 `C:\Users\username\envs` 目录下，如需指定，只需在环境变量中，设置 WORKON_HOME 变量。
@@ -224,20 +226,19 @@ virtualenv 的有一个不足之处在于，每次开启虚拟环境之前都要
 
    ```bash
    export WORKON_HOME=~/Envs    # 设置virtualenv的统一管理目录，可按需修改
-   export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'    # 添加virtualenvwrapper的参数，生成干净隔绝的环境
    export VIRTUALENVWRAPPER_PYTHON=/opt/python36/bin/python3    # 指定python解释器
    source /opt/python36/bin/virtualenvwrapper.sh    # 执行virtualenvwrapper安装脚本
    ```
-
-   读取 `~/.bashrc` 文件，使其生效：
-
-   ```bash
+   
+读取 `~/.bashrc` 文件，使其生效：
+   
+```bash
    source ~/.bashrc
    ```
-
-   执行效果像下面这样，说明运行成功。不出意外的话，完成此步即可使用 virtalenvwrapper。
-
-   ```bash
+   
+执行效果像下面这样，说明运行成功。不出意外的话，完成此步即可使用 virtalenvwrapper。
+   
+```bash
    [root@localhost ~]# source ~/.bashrc
    virtualenvwrapper.user_scripts creating /root/Envs/premkproject
    virtualenvwrapper.user_scripts creating /root/Envs/postmkproject
@@ -253,7 +254,7 @@ virtualenv 的有一个不足之处在于，每次开启虚拟环境之前都要
    virtualenvwrapper.user_scripts creating /root/Envs/get_env_details
    [root@localhost ~]# 
    ```
-
+   
 3. virtualenvwrapper 的基本使用操作命令：
 
    ```bash

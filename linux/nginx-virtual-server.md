@@ -33,7 +33,7 @@ server {
     #定义网站端口的参数
     listen       80;
     # 填写网站域名的参数
-    server_name  www.s26pythonav.com;
+    server_name  www.py.com;
 
     # 这个locaiton类似于url.py的功能，进行路由匹配
     # location / 代表最低级的匹配，所有的请求都会走到这里
