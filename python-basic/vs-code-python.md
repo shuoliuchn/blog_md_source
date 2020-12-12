@@ -46,6 +46,28 @@ vue 官方文档还建议安装 [Debugger for Chrome](https://marketplace.visual
 - JavaScript(ES6) code snippets ES6语法智能提示以及快速输入，除js外还支持.ts，.jsx，.tsx，.html，.vue，省去了配置其支持各种包含js代码文件的时间
 - Path Intellisense —— 自动路劲补全
 
+### 离线安装插件
+
+首先，进入 VSCode 插件市场 [Extensions for the Visual Studio family of products](https://marketplace.visualstudio.com/vscode)，输入你想要的插件名称，比如这我要安装中文插件：
+
+![image-20201130112213432](vs-code-python.assets/image-20201130112213432.png)
+
+点击进入我们想要的那个插件中，然后点击右侧的 `Download Extension` 下载插件：
+
+![image-20201130112335231](vs-code-python.assets/image-20201130112335231.png)
+
+
+
+终端进入存放插件文件的目录，执行命令安装插件：
+
+```bash
+code --install-extension MS-CEINTL.vscode-language-pack-zh-hans-1.51.2.vsix
+```
+
+如果出现 `Extension ‘xxx’ was successfully installed` 字样，说明安装成功，重启 VSCode，可以看到插件生效了：
+
+![image-20201130113553063](vs-code-python.assets/image-20201130113553063.png)
+
 ### 运行 Django 项目
 
 别的操作，比如打开文件夹，运行简单程序之类的太简单，就不写了。
