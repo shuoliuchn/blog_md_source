@@ -29,7 +29,7 @@ command=/bin/cat
 
 ### supervisord 命令行选项
 
-| 参数                               | 描述                                                         |
+| 选项                               | 说明                                                         |
 | ---------------------------------- | ------------------------------------------------------------ |
 | -c FILE, --configuration=FILE      | **supervisord** 配置文件的路径。                             |
 | -n, --nodaemon                     | 在前台运行 **supervisord**。                                 |
@@ -54,112 +54,111 @@ command=/bin/cat
 
 ## 运行 supervisorctl
 
-To start **supervisorctl**, run `$BINDIR/supervisorctl`. A shell will be presented that will allow you to control the processes that are currently managed by **supervisord**. Type “help” at the prompt to get information about the supported commands.
+运行 `$BINDIR/supervisorctl` 命令来启动 **supervisorctl**。这样会出现一个 shell 页面，你可以以此来操控那些当前正在被 **supervisord** 管理着的进程。在提示符中输入“help”来获取所支持的命令的信息。
 
-The **supervisorctl** executable may be invoked with “one time” commands when invoked with arguments from a command line. An example: `supervisorctl stop all`. If arguments are present on the command-line, it will prevent the interactive shell from being invoked. Instead, the command will be executed and `supervisorctl` will exit with a code of 0 for success or running and non-zero for error. An example: `supervisorctl status all` would return non-zero if any single process was not running.
+**supervisorctl** 可执行文件可以通过在命令行中指定参数，调用“一次性”的命令。例如：`supervisorctl stop all`。如果命令行中有参数，将禁止调用交互模式的 shell。相反，该命令会被执行并且 `supervisorctl` 将在成功的时候返回 0，在出错的时候返回非零信息。例如：如果任何一个进程没有在运行的话，`supervisorctl status all` 将会返回非零。
 
-If **supervisorctl** is invoked in interactive mode against a **supervisord** that requires authentication, you will be asked for authentication credentials.
+如果交互模式下调用的 **supervisorctl** 和需要权限的 **supervisord** 冲突，你将会被要求进行权限认证。
 
-### **supervisorctl** Command-Line Options
+### supervisorctl 命令行选项
 
-| -c, --configuration |                                                              |
+| 选项                | 说明                                                         |
 | ------------------- | ------------------------------------------------------------ |
-|                     | Configuration file path (default /etc/supervisord.conf)      |
-| -h, --help          | Print usage message and exit                                 |
-| -i, --interactive   |                                                              |
-|                     | Start an interactive shell after executing commands          |
-| -s, --serverurl URL |                                                              |
-|                     | URL on which supervisord server is listening (default “[http://localhost:9001](http://localhost:9001/)”). |
-| -u, --username      | Username to use for authentication with server               |
-| -p, --password      | Password to use for authentication with server               |
-| -r, --history-file  |                                                              |
-|                     | Keep a readline history (if readline is available)           |
+| -c, --configuration | 配置文件路径（默认 /etc/supervisord.conf）                   |
+| -h, --help          | 打印用法信息并退出                                           |
+| -i, --interactive   | 执行命令后启动交互 shell                                     |
+| -s, --serverurl URL | supervisord 服务正在监听的 URL（默认为“[http://localhost:9001](http://localhost:9001/)”） |
+| -u, --username      | 服务器权限认证所需要的用户名                                 |
+| -p, --password      | 服务器权限认证所需要的密码                                   |
+| -r, --history-file  | 保留阅读线历史（如果阅读线 readline 可用）                   |
 
-action [arguments]
+活动/action [参数/arguments]
 
-Actions are commands like “tail” or “stop”. If -i is specified or no action is specified on the command line, a “shell” interpreting actions typed interactively is started. Use the action “help” to find out about available actions.
+活动/Actions 就是像“tail”或者“stop”这样的命令。如果在命令行中指定了 -i 或者没有指定任何活动，就会启动一个交互式输入活动的“shell”解释器。使用“”活动来了解可用的活动。
 
-### supervisorctl Actions
+### supervisorctl 的活动 Actions
+
+TODO: 使用表格重构。。
 
 help
 
-> Print a list of available actions
+> 打印出可用的活动的序列
 
 help <action>
 
-> Print help for <action>
+> 打印 <action> 的帮助信息
 
 add <name> [...]
 
-> Activates any updates in config for process/group
+> 激活 process/group 配置中所有的更新
 
 remove <name> [...]
 
-> Removes process/group from active config
+> 取消 process/group 的配置激活
 
 update
 
-> Reload config and add/remove as necessary, and will restart affected programs
+> 重新载入配置，并且按需增加/删除，而且会重启涉及到的程序
 
 update all
 
-> Reload config and add/remove as necessary, and will restart affected programs
+> 重新载入配置，并且按需增加/删除，而且会重启涉及到的程序
 
 update <gname> [...]
 
-> Update specific groups, and will restart affected programs
+> 更新指定的组，而且会重启涉及到的程序
 
 clear <name>
 
-> Clear a process’ log files.
+> 清除一个进程的日志文件
 
 clear <name> <name>
 
-> Clear multiple process’ log files
+> 清除多个进程的日志文件
 
 clear all
 
-> Clear all process’ log files
+> 清除所有进程的日志文件
 
 fg <process>
 
-> Connect to a process in foreground mode Press Ctrl+C to exit foreground
+> 前台模式连接一个进程，键入 Ctrl+C 退出前台模式
 
 pid
 
-> Get the PID of supervisord.
+> 获取 supervisord 的 PID
 
 pid <name>
 
-> Get the PID of a single child process by name.
+> 获取指定名字的单个子进程的 PID
 
 pid all
 
-> Get the PID of every child process, one per line.
+> 获取所有子进程的 PID，每行一个
 
 reload
 
-> Restarts the remote supervisord
+> 重启远程 supervisord
 
 reread
 
-> Reload the daemon’s configuration files, without add/remove (no restarts)
+> 重新载入守护进程的配置文件，不会新增/删除（不会重启）
 
 restart <name>
 
-> Restart a process Note: restart does not reread config files. For that, see reread and update.
+> 重启进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update
 
 restart <gname>:*
 
-> Restart all processes in a group Note: restart does not reread config files. For that, see reread and update.
+> 重启一个组中的所有进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update
 
 restart <name> <name>
 
-> Restart multiple processes or groups Note: restart does not reread config files. For that, see reread and update.
+> 重启多个进程或组。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update
 
 restart all
 
-> Restart all processes Note: restart does not reread config files. For that, see reread and update.
+> 重启所有进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update
 
 signal
 
@@ -167,15 +166,15 @@ signal
 
 start <name>
 
-> Start a process
+> 启动一个进程
 
 start <gname>:*
 
-> Start all processes in a group
+> 启动一个组中的所有进程
 
 start <name> <name>
 
-> Start multiple processes or groups
+> 启动多个进程或组
 
 start all
 
