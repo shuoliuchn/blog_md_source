@@ -34,7 +34,7 @@ uwsgi 并发性更好，因为它是 C 写的一个基于 uwsgi 协议运行的�
 若出现上面的提示，说明需要先安装：
 
 ```shell
-pip3 install -i https://pypi.douban.com/simple virtualenv
+pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple virtualenv
 ```
 
 进入想要存放虚拟环境的文件夹，创建虚拟 Python 环境：
@@ -54,7 +54,7 @@ pip3 install -i https://pypi.douban.com/simple virtualenv
 虚拟环境激活后，安装 uwsgi 工具：
 
 ```shell
-(venv_crm) [root@localhost venv_crm]# pip3 install -i https://pypi.douban.com/simple uwsgi
+(venv_crm) [root@localhost venv_crm]# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple uwsgi
 ```
 
 ### 上传 crm 代码
@@ -100,7 +100,7 @@ ImportError: Couldn't import Django. Are you sure it's installed and available o
 这是因为虚拟环境中没有 django。兵来将挡水来土掩，安装 django 就是了：
 
 ```shell
-(venv_crm) [root@localhost CRM]# pip3 install -i https://pypi.douban.com/simple django==1.11.9
+(venv_crm) [root@localhost CRM]# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple django==1.11.9
 ```
 
 #### 安装 pymysql
@@ -120,7 +120,7 @@ ModuleNotFoundError: No module named 'pymysql'
 看来我们还需要安装 pymysql 模块：
 
 ```shell
-(venv_crm) [root@localhost CRM]# pip3 install -i https://pypi.douban.com/simple pymysql
+(venv_crm) [root@localhost CRM]# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple pymysql
 ```
 
 #### 安装 django-multiselectfield
@@ -140,7 +140,7 @@ ModuleNotFoundError: No module named 'multiselectfield'
 这里提示的是没有安装 multiselectfield 模块。但主要注意的是，包的名字是 django-multiselectfield 而不是直接的 multiselectfield：
 
 ```shell
-(venv_crm) [root@localhost CRM]# pip3 install -i https://pypi.douban.com/simple django-multiselectfield
+(venv_crm) [root@localhost CRM]# pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple django-multiselectfield
 ```
 
 #### 一键安装 crm 依赖环境

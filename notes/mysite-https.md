@@ -45,24 +45,24 @@ nginx 有些得很详细的 https 虚拟主机配置，我们把它找到，取�
 
 只需将证书文件输入进入即可，我们没有 .pem 文件，那个 .crt 文件就是证书文件（别的设置也不懂，以后懂了再改吧，都用的默认）：
 
-```
-    server {
-        listen       443 ssl;
-        server_name  localhost;
+```java
+server {
+    listen       443 ssl;
+    server_name  localhost;
 
-        ssl_certificate      cert/1_sliu.vip_bundle.crt;
-        ssl_certificate_key  cert/2_sliu.vip.key;
+    ssl_certificate      cert/1_sliu.vip_bundle.crt;
+    ssl_certificate_key  cert/2_sliu.vip.key;
 
-        ssl_session_cache    shared:SSL:1m;
-        ssl_session_timeout  5m;
+    ssl_session_cache    shared:SSL:1m;
+    ssl_session_timeout  5m;
 
-        ssl_ciphers  HIGH:!aNULL:!MD5;
-        ssl_prefer_server_ciphers  on;
+    ssl_ciphers  HIGH:!aNULL:!MD5;
+    ssl_prefer_server_ciphers  on;
 
-        location / {
-            proxy_pass   http://localhost:4000;
-        }
+    location / {
+        proxy_pass   http://localhost:4000;
     }
+}
 ```
 
 平滑重启 nginx：

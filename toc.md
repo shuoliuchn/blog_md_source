@@ -41,6 +41,7 @@
   - 数据库基本概念： [数据库的基本概念和 Windows 下安装 MySQL](database\database-basic.md) | [MySQL 客户端命令](database\mysql-client-command.md) 
   - MySQL 语法： [数据库、数据表和数据的基本操作](database\mysql-db-tb.md) | [MySQL 中的数据类型](database\mysql-data-type.md) | [MySQL 表的完整性约束](database\mysql-constraint.md) 
   - Python 操作 MySQL： [mysqlclient 安装](linux\mysqlclient.md) 
+  - MySQL 8： [MySQL 8.0 的安装和配置](database\mysql8-install.md) 
 - Redis
   -  [Redis 的安装和配置](database\redis-install.md) | [Redis 的基本使用](database\redis-abc.md) | [Python 操作 Redis](database\redis-python.md) 
 
@@ -93,10 +94,11 @@
 
 - Linux 基础
   - **基础知识和系统安装：** [服务器与 Linux 基础知识](linux\server-linux.md) | [虚拟机安装 CentOS](linux\centos-vmware.md) | [远程连接 CentOS](linux\remote-connection.md) | [IP 和端口](linux\ip-port.md) | [目录和路径](linux\directory-path.md) | [dns 域名解析](linux\dns.md) 
-  - **Linux 操作命令：** [vim 的基本使用](linux\vim.md) | [Linux 基本的文件增删改查命令](linux\basic-command.md) | [Linux 常用命令](linux\common-command.md) | [编译安装 Python 3 并部署简单 django 项目](linux\py3-installation.md) | [Linux 的软件包管理工具 yum](linux\yum.md) | [解压缩包安装 JDK](linux\jdk-installation.md) 
+  - **Linux 操作命令：** [vim 的基本使用](linux\vim.md) | [Linux 基本的文件增删改查命令](linux\basic-command.md) | [Linux 常用命令](linux\common-command.md) | [编译安装 Python 3 并部署简单 django 项目](linux\py3-installation.md) | [Linux 的软件包管理工具 yum](linux\yum.md) | [解压缩包安装 JDK](linux\jdk-installation.md) | [Linux 磁盘挂载](linux\mount.md) 
   - **nginx 的安装和使用：** [Linux 软件安装流程 - nginx 的安装](linux\software-installation.md) | [nginx 介绍](linux\nginx-intro.md) | [nginx 虚拟主机功能](linux\nginx-virtual-server.md) | [nginx 的多虚拟主机配置](linux\nginx-multi-virtual-server.md) | [nginx 的访问日志功能](linux\nginx-log.md) | [nginx 的错误页面优化功能](linux\nginx-error-page.md) | [nginx 的反向代理功能](linux\nginx-reverse-proxy.md) | [nginx 负载均衡配置](linux\nginx-load-balance.md) | [crm 项目部署](linux\crm-build.md) | [Nginx 快速入门](linux\nginx-abc.md) | [Django 项目的部署](linux\django-proj-deploy.md) 
   - **分布式：** [MySQL 分布式存储](linux\mysql-distributed-storage.md) | [ZooKeeper 分布式调度](linux\distributed-scheduling.md) | [LVS + keepalived 实现负载均衡](linux\lvs-keepalived-lb.md) | [Redis 分布式缓存](linux\redis-distributed-cache.md) 
-  - **Docker：** [Docker 初识和安装](linux\docker-abc-install.md) | [docker 的镜像和容器](linux\docker-image-container.md) | [docker 的网络](linux\docker-network.md) | [docker 的持久化存储和数据共享](linux\docker-data-share.md) | [docker Compose 多容器部署](linux\docker-compose.md) |  [Docker 部署 GitLab](linux\docker-gitlab.md) | [Docker 部署 MySQL 5.7](linux\docker-mysql57.md) | [Docker 安装 Redis](linux\docker-redis.md) | [Docker 安装 Gogs](linux\docker-gogs.md) 
+  - **Docker：** [Docker 初识和安装](linux\docker-abc-install.md) | [docker 的镜像和容器](linux\docker-image-container.md) | [docker 的网络](linux\docker-network.md) | [docker 的持久化存储和数据共享](linux\docker-data-share.md) | [docker Compose 多容器部署](linux\docker-compose.md) |  [Docker 部署 GitLab](linux\docker-gitlab.md) | [Docker 部署 MySQL 5.7](linux\docker-mysql57.md) | [Docker 安装 Redis](linux\docker-redis.md) | [Docker 安装 Gogs](linux\docker-gogs.md) | [Docker 安装 Resilio Sync](linux\docker-resilio-sync.md) 
+  - **Linux 工具：** [安装和配置 Samba](linux\samba.md) 
   - **Python 和 pip：** [Python 的虚拟环境](linux\python-virtualenv.md) | [导出导入 Python 依赖](linux\python-requirements.md) | [pip 更换为国内源](linux\pip-source.md) 
 
 
@@ -156,7 +158,7 @@
 
 ## Hexo
 
-- 使用 Markdown + Hexo 搭建个人博客： [使用 Markdown + Hexo 搭建个人博客系列简介](hexo\introduction.md) |
+- 使用 Markdown + Hexo 搭建个人博客： [使用 Markdown + Hexo 搭建个人博客系列简介](hexo\introduction.md) | [installing.md](hexo\installing.md) 
 
 
 
@@ -178,7 +180,7 @@
   - 第三方包官方文档：
     - **Django REST Framework 官方教程：** [快速入门](translation\django-rest-framework-tutorial\quickstart.md) | [教程 1: 序列化 Serialization](translation\django-rest-framework-tutorial\serialization.md) | [教程 2：请求 Request 和响应 Response](translation\django-rest-framework-tutorial\requests-response.md) | [教程 3：类视图 Class-based View](translation\django-rest-framework-tutorial\class-based-view.md) | [教程 4：认证 Authentication 和权限 Permission](translation\django-rest-framework-tutorial\authentication-permission.md) | [教程 5：关系 Relationships 和超链接 API Hyperlinked APIs](translation\django-rest-framework-tutorial\relationship-hyperlinked-api.md) 
     - **supervisor 官方文档：** [supervisor 的安装](translation\supervisor\installing.md) | [运行 Supervisor](translation\supervisor\running.md) 
-    - **raspberry-gpio-python 模块使用实例：** [安装](translation\raspberry-gpio-python-examples\installing.md)  |  [基础使用](translation\raspberry-gpio-python-examples\gpio-basic-use.md)  |  [输入](translation\raspberry-gpio-python-examples\input.md)  |  [输出](translation\raspberry-gpio-python-examples\output.md)  |  [PWM（脉宽调制）](translation\raspberry-gpio-python-examples\PWM.md) |  [查看 GPIO 通道的功能](translation\raspberry-gpio-python-examples\GPIO-function.md) |  [控制 LED 和开关](translation\raspberry-gpio-python-examples\controlling-LED-and-switch.md) 
+    - **raspberry-gpio-python 模块使用实例：** [安装](translation\raspberry-gpio-python-examples\installing.md)  |  [基础使用](translation\raspberry-gpio-python-examples\gpio-basic-use.md) | [输入](translation\raspberry-gpio-python-examples\input.md) | [输出](translation\raspberry-gpio-python-examples\output.md) | [PWM（脉宽调制）](translation\raspberry-gpio-python-examples\PWM.md) | [查看 GPIO 通道的功能](translation\raspberry-gpio-python-examples\GPIO-function.md) | [控制 LED 和开关](translation\raspberry-gpio-python-examples\controlling-LED-and-switch.md) 
   
 - 实用工具官方文档
   

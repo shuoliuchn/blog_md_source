@@ -78,186 +78,64 @@ command=/bin/cat
 
 ### supervisorctl 的活动 Actions
 
-TODO: 使用表格重构。。
-
-help
-
-> 打印出可用的活动的序列
-
-help <action>
-
-> 打印 <action> 的帮助信息
-
-add <name> [...]
-
-> 激活 process/group 配置中所有的更新
-
-remove <name> [...]
-
-> 取消 process/group 的配置激活
-
-update
-
-> 重新载入配置，并且按需增加/删除，而且会重启涉及到的程序
-
-update all
-
-> 重新载入配置，并且按需增加/删除，而且会重启涉及到的程序
-
-update <gname> [...]
-
-> 更新指定的组，而且会重启涉及到的程序
-
-clear <name>
-
-> 清除一个进程的日志文件
-
-clear <name> <name>
-
-> 清除多个进程的日志文件
-
-clear all
-
-> 清除所有进程的日志文件
-
-fg <process>
-
-> 前台模式连接一个进程，键入 Ctrl+C 退出前台模式
-
-pid
-
-> 获取 supervisord 的 PID
-
-pid <name>
-
-> 获取指定名字的单个子进程的 PID
-
-pid all
-
-> 获取所有子进程的 PID，每行一个
-
-reload
-
-> 重启远程 supervisord
-
-reread
-
-> 重新载入守护进程的配置文件，不会新增/删除（不会重启）
-
-restart <name>
-
-> 重启进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update
-
-restart <gname>:*
-
-> 重启一个组中的所有进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update
-
-restart <name> <name>
-
-> 重启多个进程或组。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update
-
-restart all
-
-> 重启所有进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update
-
-signal
-
-> No help on signal
-
-start <name>
-
-> 启动一个进程
-
-start <gname>:*
-
-> 启动一个组中的所有进程
-
-start <name> <name>
-
-> 启动多个进程或组
-
-start all
-
-> Start all processes
-
-status
-
-> Get all process status info.
-
-status <name>
-
-> Get status on a single process by name.
-
-status <name> <name>
-
-> Get status on multiple named processes.
-
-stop <name>
-
-> Stop a process
-
-stop <gname>:*
-
-> Stop all processes in a group
-
-stop <name> <name>
-
-> Stop multiple processes or groups
-
-stop all
-
-> Stop all processes
-
-tail [-f] <name> [stdout|stderr] (default stdout)
-
-> Output the last part of process logs Ex: tail -f <name> Continuous tail of named process stdout Ctrl-C to exit. tail -100 <name> last 100 *bytes* of process stdout tail <name> stderr last 1600 *bytes* of process stderr
-
-## Signals
-
-The **supervisord** program may be sent signals which cause it to perform certain actions while it’s running.
-
-You can send any of these signals to the single **supervisord** process id. This process id can be found in the file represented by the `pidfile` parameter in the `[supervisord]` section of the configuration file (by default it’s `$CWD/supervisord.pid`).
-
-### Signal Handlers
-
-```
-SIGTERM
-```
-
-> **supervisord** and all its subprocesses will shut down. This may take several seconds.
-
-```
-SIGINT
-```
-
-> **supervisord** and all its subprocesses will shut down. This may take several seconds.
-
-```
-SIGQUIT
-```
-
-> **supervisord** and all its subprocesses will shut down. This may take several seconds.
-
-```
-SIGHUP
-```
-
-> **supervisord** will stop all processes, reload the configuration from the first config file it finds, and start all processes.
-
-```
-SIGUSR2
-```
-
-> **supervisord** will close and reopen the main activity log and all child log files.
-
-## Runtime Security
-
-The developers have done their best to assure that use of a **supervisord** process running as root cannot lead to unintended privilege escalation. But **caveat emptor**. Supervisor is not as paranoid as something like DJ Bernstein’s [*daemontools*](http://supervisord.org/glossary.html#term-daemontools), inasmuch as **supervisord** allows for arbitrary path specifications in its configuration file to which data may be written. Allowing arbitrary path selections can create vulnerabilities from symlink attacks. Be careful when specifying paths in your configuration. Ensure that the **supervisord** configuration file cannot be read from or written to by unprivileged users and that all files installed by the supervisor package have “sane” file permission protection settings. Additionally, ensure that your `PYTHONPATH` is sane and that all Python standard library files have adequate file permission protections.
-
-## Running supervisord automatically on startup
-
-If you are using a distribution-packaged version of Supervisor, it should already be integrated into the service management infrastructure of your distribution.
-
-There are user-contributed scripts for various operating systems at: https://github.com/Supervisor/initscripts
-
-There are some answers at Serverfault in case you get stuck: [How to automatically start supervisord on Linux (Ubuntu)](http://serverfault.com/questions/96499/how-to-automatically-start-supervisord-on-linux-ubuntu)
+| 活动                                                       | 说明                                                         |
+| ---------------------------------------------------------- | ------------------------------------------------------------ |
+| help                                                       | 打印出可用的活动的序列                                       |
+| help \<action\>                                            | 打印 \<action\> 的帮助信息                                   |
+| add \<name\> [...]                                         | 激活 process/group 配置中所有的更新                          |
+| remove \<name\> [...]                                      | 取消 process/group 的配置激活                                |
+| update                                                     | 重新载入配置，并且按需增加/删除，而且会重启涉及到的程序      |
+| update all                                                 | 重新载入配置，并且按需增加/删除，而且会重启涉及到的程序      |
+| update \<gname\> [...]                                     | 更新指定的组，而且会重启涉及到的程序                         |
+| clear \<name\>                                             | 清除一个进程的日志文件                                       |
+| clear \<name\> \<name\>                                    | 清除多个进程的日志文件                                       |
+| clear all                                                  | 清除所有进程的日志文件                                       |
+| fg \<process\>                                             | 前台模式连接一个进程，键入 Ctrl+C 退出前台模式               |
+| pid                                                        | 获取 supervisord 的 PID                                      |
+| pid \<name\>                                               | 获取指定名字的单个子进程的 PID                               |
+| pid all                                                    | 获取所有子进程的 PID，每行一个                               |
+| reload                                                     | 重启远程 supervisord                                         |
+| reread                                                     | 重新载入守护进程的配置文件，不会新增/删除（不会重启）        |
+| restart \<name\>                                           | 重启进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update |
+| restart \<gname\>:*                                        | 重启一个组中的所有进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update |
+| restart \<name\> \<name\>                                  | 重启多个进程或组。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update |
+| restart all                                                | 重启所有进程。注意：重启不会重新读取配置文件。如果你希望那样，参见 reread 和 update |
+| signal                                                     | No help on signal                                            |
+| start \<name\>                                             | 启动一个进程                                                 |
+| start \<gname\>:*                                          | 启动一个组中的所有进程                                       |
+| start \<name\> \<name\>                                    | 启动多个进程或组                                             |
+| start all                                                  | 启动所有进程                                                 |
+| status                                                     | 获取所有进程的状态信息                                       |
+| status \<name\>                                            | 通过名字获取某个进程的状态信息                               |
+| status \<name\> \<name\>                                   | 通过名字获取多个进程的状态信息                               |
+| stop \<name\>                                              | 终止一个进程                                                 |
+| stop \<gname\>:*                                           | 终止一个组中的所有进程                                       |
+| stop \<name\> \<name\>                                     | 终止多个进程或组                                             |
+| stop all                                                   | 终止所有进程                                                 |
+| tail \[\-f\] \<name\> \[stdout\|stderr\] \(default stdout) | 输出进程日志的最后一部分。比如：`tail -f <name>` 会持续追加输出指定名称的进程的标准输出，使用 Ctrl-C 退出查看。`tail -100 <name>` 会输出该进程标准输出尾部的最后 100 字节。`tail <name> stderr` 会输出该进程标准异常流的最后 1600 字节内容 |
+
+## 信号（Signals）
+
+可以通过给运行中的 **supervisord** 发送信号，让他执行特定的动作。
+
+你可以给指定的 **supervisord** 进程 id 发送以下任何一个信号。这个进程 id 可以在配置文件的 `[supervisord]` 节中的 `pidfile` 参数代表的文件（默认为 `$CWD/supervisord.pid`）中找到。
+
+| 信号语句 | 说明                                                         |
+| -------- | ------------------------------------------------------------ |
+| SIGTERM  | **supervisord** 及其所有的子进程都会被终止。这可能要花费几秒钟时间 |
+| SIGINT   | **supervisord** 及其所有的子进程都会被终止。这可能要花费几秒钟时间 |
+| SIGQUIT  | **supervisord** 及其所有的子进程都会被终止。这可能要花费几秒钟时间 |
+| SIGHUP   | **supervisord** 将终止所有的进程，重新载入它能找到的第一个配置文件，然后启动所有进程 |
+| SIGUSR2  | **supervisord** 将关闭并重新打开主要活动日志和所有的子日志文件 |
+
+## 运行时安全（Runtime Security）
+
+开发者已经进他们最大的努力确保使用以 root 权限执行的 **supervisord** 进程不会导致意外的权限提升。不过**后果自负**。Supervisor 不像 DJ Bernstein 的 [*daemontools*](http://supervisord.org/glossary.html#term-daemontools) 那样偏执，**supervisord** 做的不够的一点是它允许把配置文件声明在任意路径，而这个路径有可能被写入数据。允许选择任意路径在符号链接攻击（symlink attacks）面前将显得很脆弱。声明配置文件的路径时一定要慎重。确保 **supervisord** 的配置文件不能被未授权的用户读取和写入，而且所有由 supervisor 包安装的文件都应该有“理智的”文件权限保护设置。另外，确保你的 `PYTHONPATH` 是理智的，而且所有的 Python 标准库文件有充足的文件权限保护。
+
+## 系统启动时自动运行 supervisord
+
+如果你正在使用分发包版本的 Supervisor，它应该已经集成在了你的发行版的服务管理基础架构中。
+
+这里有针对很多不同操作系统的用户贡献的脚本：https://github.com/Supervisor/initscripts
+
+如果你遇到什么问题卡住了，可以在 Serverfault 找到一些答案：[How to automatically start supervisord on Linux (Ubuntu)](http://serverfault.com/questions/96499/how-to-automatically-start-supervisord-on-linux-ubuntu)

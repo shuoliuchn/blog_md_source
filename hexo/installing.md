@@ -2,7 +2,29 @@
 
 hexo 的安装需要依赖 node.js 和 git 环境。
 
+## 安装 git
 
+各种系统安装 git 的方式都可以在 [git 官网](https://git-scm.com/downloads) 找到，都十分容易。
+
+Windows 安装 git 就是从官网下载安装包，有些选项不懂也无妨，按照默认选项一直下一步就可以。
+
+Linux 和 MacOS 安装可以通过包管理工具，比如 yum 或 apt-get 直接安装，一条命令即可。
+
+如果能使用命令查看 git 的版本，说明 git 安装成功：
+
+```bash
+git version
+```
+
+## 安装 node.js
+
+node.js 也可以直接从 [node.js 的官网](https://nodejs.org/en/download/) 下载安装。
+
+不过我更倾向于使用 mvm 安装，因为这样可以按需使用自己需要的 node.js 版本。操作说明可以从 [nvm 的 GitHub 仓库](https://github.com/nvm-sh/nvm) 找到，几条命令就可以搞定。
+
+安装好 node.js，就会自动安装 node.js 的包管理工具 npm。默认的 npm 镜像源在国外，访问速度慢，有时甚至无法使用。所以可以使用 [阿里的 npm 镜像源](https://developer.aliyun.com/mirror/NPM)，提高效率。
+
+## 安装 hexo
 
 安装好 node.js 和 git 之后，即可安装 hexo 了：
 
@@ -10,73 +32,4 @@ hexo 的安装需要依赖 node.js 和 git 环境。
 npm install -g hexo-cli
 ```
 
-## 初始化博客项目
-
-安装完成 hexo，即可使用命令初始化创建一个博客项目：
-
-```bash
-hexo init blog
-```
-
-这个命令会在当前目录下生成一个名为 blog 的 hexo 项目，其目录结构为：
-
-```
-.
-├── _config.yml
-├── package.json
-├── scaffolds
-├── source
-|   ├── _drafts
-|   └── _posts
-└── themes
-```
-
-### _config.yml
-
-Hexo 的 [配置](https://hexo.io/zh-cn/docs/configuration) 文件，通过修改这个文件可以配置 hexo 成为我们想要的样子。
-
-### package.json
-
-npm 的包文件，用来记录环境依赖。使用命令 `npm install`，这些依赖的包将会安装到 node_modules 文件夹中。
-
-应用程序的信息。[EJS](https://ejs.co/), [Stylus](http://learnboost.github.io/stylus/) 和 [Markdown](http://daringfireball.net/projects/markdown/) renderer 已默认安装，可以自由修改和移除。
-
-```
-package.json{
-  "name": "hexo-site",
-  "version": "0.0.0",
-  "private": true,
-  "hexo": {
-    "version": ""
-  },
-  "dependencies": {
-    "hexo": "^3.8.0",
-    "hexo-generator-archive": "^0.1.5",
-    "hexo-generator-category": "^0.1.3",
-    "hexo-generator-index": "^0.2.1",
-    "hexo-generator-tag": "^0.2.0",
-    "hexo-renderer-ejs": "^0.3.1",
-    "hexo-renderer-stylus": "^0.3.3",
-    "hexo-renderer-marked": "^0.3.2",
-    "hexo-server": "^0.3.3"
-  }
-}
-```
-
-### scaffolds
-
-[模版](https://hexo.io/zh-cn/docs/writing) 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。
-
-Hexo的模板是指在新建的文章文件中默认填充的内容。例如，如果您修改scaffold/post.md中的Front-matter内容，那么每次新建一篇文章时都会包含这个修改。
-
-### source
-
-资源文件夹是存放用户资源的地方。除 `_posts` 文件夹之外，开头命名为 `_` (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。后面我们写好的博客文件就将会放到 `_posts` 文件夹中。
-
-当我们执行 hexo generate 命令生成静态网站文件时，source 目录下的所有 Markdown 和 HTML 文件都会按照相对路径的形式会被解析并放到 `public` 文件夹，而其他文件会被直接拷贝过去。
-
-我们只需要将 nginx 指向 public 文件，即可访问到博客内容了。
-
-### themes
-
-[主题](https://hexo.io/zh-cn/docs/themes) 文件夹。Hexo 会根据主题来生成静态页面。
+没错，一条命令就可以搞定 hexo 的安装。
