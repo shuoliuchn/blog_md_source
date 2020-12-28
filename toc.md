@@ -156,9 +156,9 @@
 
 
 
-## Hexo
+## 个人博客
 
-- 使用 Markdown + Hexo 搭建个人博客： [使用 Markdown + Hexo 搭建个人博客系列简介](hexo\introduction.md) | [installing.md](hexo\installing.md) 
+- 使用 Markdown + Hexo 搭建个人博客： [使用 Markdown + Hexo 搭建个人博客系列简介](blog\hexo-introduction.md) | [Hexo 的安装](blog\hexo-installing.md) | [Hexo 的基本使用](blog\hexo-basic.md) 
 
 
 
@@ -179,7 +179,7 @@
   - **其他官方文档：** [Python 新式类继承关系的 C3 算法（Python 2.3 的方法解析顺序，MRO）](translation\python-MRO.md) 
   - 第三方包官方文档：
     - **Django REST Framework 官方教程：** [快速入门](translation\django-rest-framework-tutorial\quickstart.md) | [教程 1: 序列化 Serialization](translation\django-rest-framework-tutorial\serialization.md) | [教程 2：请求 Request 和响应 Response](translation\django-rest-framework-tutorial\requests-response.md) | [教程 3：类视图 Class-based View](translation\django-rest-framework-tutorial\class-based-view.md) | [教程 4：认证 Authentication 和权限 Permission](translation\django-rest-framework-tutorial\authentication-permission.md) | [教程 5：关系 Relationships 和超链接 API Hyperlinked APIs](translation\django-rest-framework-tutorial\relationship-hyperlinked-api.md) 
-    - **supervisor 官方文档：** [supervisor 的安装](translation\supervisor\installing.md) | [运行 Supervisor](translation\supervisor\running.md) 
+    - **supervisor 官方文档：** [supervisor 的安装](translation\supervisor\installing.md) | [运行 Supervisor](translation\supervisor\running.md) | [Supervisor 的配置文件](translation\supervisor\configuration.md) 
     - **raspberry-gpio-python 模块使用实例：** [安装](translation\raspberry-gpio-python-examples\installing.md)  |  [基础使用](translation\raspberry-gpio-python-examples\gpio-basic-use.md) | [输入](translation\raspberry-gpio-python-examples\input.md) | [输出](translation\raspberry-gpio-python-examples\output.md) | [PWM（脉宽调制）](translation\raspberry-gpio-python-examples\PWM.md) | [查看 GPIO 通道的功能](translation\raspberry-gpio-python-examples\GPIO-function.md) | [控制 LED 和开关](translation\raspberry-gpio-python-examples\controlling-LED-and-switch.md) 
   
 - 实用工具官方文档
