@@ -1067,9 +1067,11 @@ nvm use <version>
 # 设置默认版本，如果没有设置，则开机时默认node是没有启动的。
 nvm alias default v10.15.2
 
+# 把当前使用的 node 版本设置为默认值（建议使用这个而非上面那个）
+nvm alias default node
+
 # 查看当前使用的版本
 nvm current
-
 ```
 
 ![1555900488599](ubuntu-python.assets/1555900488599.png)

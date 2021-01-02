@@ -1,6 +1,6 @@
 # Hexo 的安装
 
-hexo 的安装需要依赖 node.js 和 git 环境。
+Hexo 的安装需要依赖 node.js 和 git 环境。
 
 ## 安装 git
 
