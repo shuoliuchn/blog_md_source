@@ -140,7 +140,7 @@
 
 - 机器学习基础
   - **背景和理论：** [机器学习概述](machine-learning\ml-abstract.md) | [特征工程](machine-learning\feature-engineering.md) | [sklearn 的数据集](machine-learning\sklearn-dataset.md) | [机器学习基础](machine-learning\ml-basic.md) 
-  - **机器学习算法：** [K-近邻算法和交叉验证](machine-learning\knn-cross.md) | [线性回归和回归算法的评价指标](machine-learning\linear-regression.md) | [多项式回归和过拟合与欠拟合的处理](machine-learning\polynomial.md) | [朴素贝叶斯算法](machine-learning\naive-bayes.md) | [逻辑斯蒂回归](machine-learning\logistic-regression.md) | [分类模型的评价指标](machine-learning\classification-evaluation.md) 
+  - **机器学习算法：** [K-近邻算法和交叉验证](machine-learning\knn-cross.md) | [线性回归和回归算法的评价指标](machine-learning\linear-regression.md) | [多项式回归和过拟合与欠拟合的处理](machine-learning\polynomial.md) | [朴素贝叶斯算法](machine-learning\naive-bayes.md) | [逻辑斯蒂回归](machine-learning\logistic-regression.md) | [分类模型的评价指标](machine-learning\classification-evaluation.md) | [神经网络范式](machine-learning\neural-network.md) 
 
 
 

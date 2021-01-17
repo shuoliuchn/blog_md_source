@@ -414,6 +414,53 @@ sudo /etc/init.d/ssh stop      # 关闭ssh服务
 ps -ef | grep sshd    # 查看ssh服务是否运行
 ```
 
+### Xrdp 远程桌面
+
+安装 Xrdp：
+
+```bash
+sudo apt update
+sudo apt install xrdp
+```
+
+安装好后，Xrdp 会以服务的形式后台运行，并自动随系统启动而运行。
+
+查看 Xrdp 的运行状态：
+
+```bash
+sudo systemctl status xrdp
+```
+
+Xrdp 默认使用`/etc/ssl/private/ssl-cert-snakeoil.key`，它仅对 `ssl-cert` 用户组成语可读。运行下面的命令，将 `xrdp` 用户添加到这个用户组：
+
+```bash
+sudo adduser xrdp ssl-cert
+```
+
+重启 Xrdp 服务，使得修改生效：
+
+```bash
+sudo systemctl restart xrdp
+```
+
+查看防火墙状态：
+
+```bash
+sudo ufw status
+```
+
+如果防火墙未启动，不需要任何额外操作，否则要么关闭防火墙，要么使用如下命令允许某个 IP 访问 Xrdp 服务：
+
+```bash
+sudo ufw allow from 192.168.33.0/24 to any port 3389
+```
+
+或者允许所有 IP 访问 Xrdp 服务：
+
+```bash
+sudo ufw allow 3389
+```
+
 ### Chrome
 
 使用 Ubuntu 内置的火狐浏览器打开谷歌浏览器的下载地址：
