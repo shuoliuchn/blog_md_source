@@ -469,53 +469,31 @@ sudo ufw allow 3389
 
 ![1555466987568](ubuntu-python.assets/1555466987568.png)
 
-
-
 选择 Ubuntu 版本
 
 ![1555467043282](ubuntu-python.assets/1555467043282-1581426776805.png)
-
-
 
 点选 `保存文件`，默认会保存在用户家目录下的 Downloads 目录下
 
 ![1555467087378](ubuntu-python.assets/1555467087378.png)
 
-
-
 ![1555471035561](ubuntu-python.assets/1555471035561.png)
-
-
 
 ![1555471112932](ubuntu-python.assets/1555471112932.png)
 
-
-
 ![1555471142332](ubuntu-python.assets/1555471142332.png)
-
-
 
 ![1555471162743](ubuntu-python.assets/1555471162743.png)
 
-
-
 ![1555471209936](ubuntu-python.assets/1555471209936-1581426796448.png)
-
-
 
 可以选择把图标拉动到左侧收藏栏中，方便快速打开。
 
 ![1555467889227](ubuntu-python.assets/1555467889227-1581426799587.png)
 
-
-
 ![1555467966573](ubuntu-python.assets/1555467966573-1581426802630.png)
 
-
-
 ![1555467980106](ubuntu-python.assets/1555467980106.png)
-
-
 
 ### 搜狗输入法
 
@@ -523,37 +501,21 @@ sudo ufw allow 3389
 
 ![1555471345709](ubuntu-python.assets/1555471345709-1581426807693.png)
 
-
-
 ![1555471416927](ubuntu-python.assets/1555471416927.png)
-
-
 
 ![1555471442196](ubuntu-python.assets/1555471442196.png)
 
-
-
 ![1555471709889](ubuntu-python.assets/1555471709889.png)
-
-
 
 ![1555471730863](ubuntu-python.assets/1555471730863.png)
 
-
-
 ![1555471759032](ubuntu-python.assets/1555471759032.png)
-
-
 
 关闭窗口后，重启 Ubuntu。
 
 ![1555471781326](ubuntu-python.assets/1555471781326.png)
 
-
-
 ![1555472039635](ubuntu-python.assets/1555472039635-1581426820442.png)
-
-
 
 ### PyCharm
 
@@ -561,23 +523,13 @@ sudo ufw allow 3389
 
 ![1555472662852](ubuntu-python.assets/1555472662852-1581426823460.png)
 
-
-
 ![1555473218834](ubuntu-python.assets/1555473218834.png)
-
-
 
 ![1555474613731](ubuntu-python.assets/1555474613731.png)
 
-
-
 ![1555474739744](ubuntu-python.assets/1555474739744.png)
 
-
-
 ![1555469017912](ubuntu-python.assets/1555469017912.png)
-
-
 
 ![1555469066192](ubuntu-python.assets/1555469066192.png)
 
@@ -638,21 +590,13 @@ Pycharm 新版本在 Ubuntu 下面和搜索的底层有冲突，可能需要 rev
 snap revert pycharm-professional
 ```
 
-
-
 ### Sublimetext 3
 
 ![1555475630890](ubuntu-python.assets/1555475630890.png)
 
-
-
 ![1555475665216](ubuntu-python.assets/1555475665216.png)
 
-
-
 ![1555475772154](ubuntu-python.assets/1555475772154.png)
-
-
 
 ![1555475945674](ubuntu-python.assets/1555475945674.png)
 
@@ -665,8 +609,6 @@ sudo apt install python3-pip
 ```
 
 ![1555486869608](ubuntu-python.assets/1555486869608-1581426856520.png)
-
-
 
 ![1555486897199](ubuntu-python.assets/1555486897199-1581426863488.png)
 
@@ -709,8 +651,6 @@ vim  ~/.bashrc
 
 ![1555493308420](ubuntu-python.assets/1555493308420-1581426878406.png)
 
-
-
 文件末尾添加以下几行代码，`:wq` 保存退出：
 
 ```shell
@@ -728,8 +668,6 @@ source ~/.bashrc
 ```
 
 ![1555493352631](ubuntu-python.assets/1555493352631-1581426884879.png)
-
-
 
 ![1555495302952](ubuntu-python.assets/1555495302952.png)
 
@@ -766,8 +704,6 @@ sudo ln -s /home/moluo/.local/bin/virtualenv /usr/bin/virtualenv
 
 ![1555495835948](ubuntu-python.assets/1555495835948.png)
 
-
-
 ### MySQL
 
 通过从官方提供的 `mysql-apt-config.deb` 包进行 APT 源设置。
@@ -776,11 +712,7 @@ MySQL 下载地址：https://dev.mysql.com/downloads/mysql/
 
 ![1555483227691](ubuntu-python.assets/1555483227691.png)
 
-
-
 ![1555483413283](ubuntu-python.assets/1555483413283.png)
-
-
 
 ![1555483481421](ubuntu-python.assets/1555483481421.png)
 
@@ -788,21 +720,13 @@ APT 源下载地址：https://dev.mysql.com/downloads/repo/apt/
 
 ![1555483637964](ubuntu-python.assets/1555483637964.png)
 
-
-
 ![1555483666999](ubuntu-python.assets/1555483666999.png)
 
-
-
 ![1555483797479](ubuntu-python.assets/1555483797479.png)
-
-
 
 下载完成以后，默认 apt 源保存在了 Downloads 目录下：
 
 ![1555484649053](ubuntu-python.assets/1555484649053.png)
-
-
 
 通过终端切换目录到 Downloads 目录下执行一下命令：
 
@@ -813,21 +737,13 @@ sudo dpkg -i mysql-apt-config_0.8.12-1_all.deb
 
 ![1555485036396](ubuntu-python.assets/1555485036396.png)
 
-
-
 ![1555485058132](ubuntu-python.assets/1555485058132-1581426927873.png)
 
-
-
 ![1555485093085](ubuntu-python.assets/1555485093085-1581426931225.png)
-
-
 
 按下方向键选择 OK 回车即可。
 
 ![1555496062646](ubuntu-python.assets/1555496062646.png)
-
-
 
 完成后运行更新命令：
 
@@ -837,8 +753,6 @@ sudo apt-get update
 
 ![1555496477552](ubuntu-python.assets/1555496477552-1581426937389.png)
 
-
-
 安装 MySQL：
 
 ```shell
@@ -847,21 +761,15 @@ sudo apt-get install mysql-server
 
 ![1555496520217](ubuntu-python.assets/1555496520217-1581426941079.png)
 
-
-
 设置 root 账号的登录密码：
 
 ![1555485497312](ubuntu-python.assets/1555485497312.png)
 
 ![1555496622098](ubuntu-python.assets/1555496622098.png)
 
-
-
 经过上面操作，就完成了数据库的安装和配置。
 
 ![1555496747740](ubuntu-python.assets/1555496747740-1581426959638.png)
-
-
 
 ### navicat
 
@@ -874,13 +782,9 @@ sudo apt-get install mysql-server
 
 ![1555558869882](ubuntu-python.assets/1555558869882-1581426970659.png)
 
-
-
 双击压缩包，并把内部文件拖放到桌面上
 
 ![1555558912918](ubuntu-python.assets/1555558912918.png)
-
-
 
 进入 navicat 目录，在终端打开输入以下命令：
 
@@ -890,15 +794,11 @@ sudo apt-get install mysql-server
 
 ![1555558990718](ubuntu-python.assets/1555558990718.png)
 
-
-
 点击安装 Mono 和 Gecko：
 
 ![1555559056428](ubuntu-python.assets/1555559056428.png)
 
 ![1555559963030](ubuntu-python.assets/1555559963030.png)
-
-
 
 把桌面上解压出来的 navicat 目录复制到 `/opt` 目录下。桌面的删除即可。
 
@@ -908,16 +808,12 @@ sudo cp ~/Desktop/navicat120_premium_cs_x64  /opt -r
 
 ![1555572438424](ubuntu-python.assets/1555572438424.png)
 
-
-
 在 `/usr/share/applications` 目录下创建 navicat 的快捷方式文件，执行以下代码：
 
 ```bash
 cd /usr/share/applications
 sudo vim navicat.desktop
 ```
-
-
 
 文件代码如下，`:wq` 保存退出。
 
@@ -936,8 +832,6 @@ Terminal=0
 
 ![1555572888816](ubuntu-python.assets/1555572888816.png)
 
-
-
 接下来在应用程序中搜索 `navicat` 并设置到收藏列表中。
 
 ![1555573020937](ubuntu-python.assets/1555573020937-1581427035728.png)
@@ -950,8 +844,6 @@ Terminal=0
 
 ![1555580716760](ubuntu-python.assets/1555580827498.png)
 
-
-
 安装 Postman 运行的依赖包
 
 ```bash
@@ -962,8 +854,6 @@ sudo apt-get install libcanberra-gtk-module
 ![1555581235664](ubuntu-python.assets/1555581235664-1581427057876.png)
 
 ![1555581250971](ubuntu-python.assets/1555581250971-1581427063109.png)
-
-
 
 把下载回来的 Postman 从 `Downloads` 目录中解压并剪切到 `/opt` 目录下
 
@@ -1003,8 +893,6 @@ Version=1.0
 Type=Application
 Terminal=0
 ```
-
-
 
 在应用程序中搜索 `postman`，并设置到收藏夹。
 
@@ -1074,9 +962,9 @@ nvm 是一个开源的 node 版本管理器，通过它，你可以下载任意�
 
 **注意：安装 nvm 之前，要确保当前机子中不存在任何版本的 node，如果有，则卸载掉。**
 
-github：<https://github.com/creationix/nvm>
+GitHub：<https://github.com/creationix/nvm>
 
-安装命令：
+安装命令（这个命令版本或许不是最新的，可以先去上面的 GitHub 链接中获取最新的安装命令）：
 
 ```bash
 sudo apt-get update
@@ -1089,7 +977,23 @@ source ~/.bashrc
 
 ![1555898571439](ubuntu-python.assets/1555898571439-1581427174747.png)
 
+如果安装过程中出现了类似 `curl: (7) Failed to connect to raw.githubusercontent.com port 443: 拒绝连接` 的报错，很可能是因为 DNS 污染导致的。解决办法为：
 
+1. 去 https://www.ipaddress.com/ 网站，查看 `raw.githubusercontent.com` 的原始 IP 地址
+
+   ![image-20210124133307286](ubuntu-python.assets/image-20210124133307286.png)
+
+2. 修改 /etc/hosts 文件
+
+   ```bash
+   sudo vim /etc/hosts
+   ```
+
+3. 在文件末尾追加如下内容，强制让 `raw.githubusercontent.com` 的 IP 被解析为 `199.232.96.133`
+
+   ```
+   199.232.96.133    raw.githubusercontent.com
+   ```
 
 ### node
 
@@ -1242,7 +1146,7 @@ sudo /usr/sbin/nginx -s reload
 
 ### Docker
 
-更新 Ubuntu 的 apt 源,上面如果执行过可以忽略
+更新 Ubuntu 的 apt 源，上面如果执行过可以忽略
 
 ```bash
 sudo apt-get update
@@ -1255,8 +1159,6 @@ sudo apt-get install apt-transport-https ca-certificates curl software-propertie
 ```
 
 ![1559067730172](ubuntu-python.assets/1559067730172.png)
-
-
 
 添加 Docker 官方 GPG key，网络不好的话，会报错，多执行几次即可。
 
@@ -1278,8 +1180,6 @@ sudo apt-get update
 
 ![1559068011503](ubuntu-python.assets/1559068011503.png)
 
-
-
 安装最新版 Docker CE（社区版）
 
 ```bash
@@ -1290,7 +1190,13 @@ sudo apt-get install docker-ce
 
 
 
-检查 Docker CE 是否安装正确，hello-world 是一个打印字符串的测试镜像，docker 会自动下载
+除了安装 Docker CE 版，Ubuntu 系统更方便的方式是安装 `docker.io`，无需上面任何繁琐操作，只需要用包管理工具 apt 安装即可：
+
+```bash
+sudo apt install docker.io
+```
+
+检查 Docker 是否安装正确，hello-world 是一个打印字符串的测试镜像，docker 会自动下载
 
 ```bash
 sudo docker run hello-world
@@ -1319,16 +1225,12 @@ sudo apt-get install mongodb
 mongo
 ```
 
-
-
 启动和关闭 mongodb 命令：
 
 ```
 service mongodb start
 service mongodb stop
 ```
-
-
 
 ### Golang
 
@@ -1386,8 +1288,6 @@ export PATH=$PATH:$GOROOT/bin
 ```
 
 ![1559994987016](ubuntu-python.assets/1559994987016.png)
-
-
 
 刷新环境变量
 
@@ -1448,8 +1348,6 @@ go get github.com/beego/bee
 
 左边是 `$GOPATH` 目录，右边是 `src` 目录，里面包含了 `beego` 框架的三个包。
 
-
-
 ### Goland
 
 官网下载地址：https://www.jetbrains.com/go/download/#section=linux
@@ -1509,19 +1407,13 @@ sudo vim /etc/hosts
 
 ![1560032506594](ubuntu-python.assets/1560032506594.png)
 
-
-
 给所有用户创建快捷方式。
 
 ![1560032582257](ubuntu-python.assets/1560032582257.png)
 
-
-
 在应用程序中搜索 `Goland`，并鼠标右键设置到收藏夹。
 
 ![1560032672351](ubuntu-python.assets/1560032672351-1581427834094.png)
-
-
 
 ### GitLab
 
@@ -1533,14 +1425,10 @@ GitLab 官方网站地址：https://gitlab.com/
 
 GitLab 中文社区地址：https://gitlab.com/xhang/gitlab
 
-
-
 ```shell
 cd ~/Downloads
 wget https://gitlab.com/xhang/gitlab/-/archive/10-8-stable-zh/gitlab-10-8-stable-zh.tar.bz2
 ```
-
-
 
 ![1560094084889](ubuntu-python.assets/1560094084889.png)
 

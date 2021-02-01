@@ -24,6 +24,8 @@ node.js 也可以直接从 [node.js 的官网](https://nodejs.org/en/download/) 
 
 安装好 node.js，就会自动安装 node.js 的包管理工具 npm。默认的 npm 镜像源在国外，访问速度慢，有时甚至无法使用。所以可以使用 [阿里的 npm 镜像源](https://developer.aliyun.com/mirror/NPM)，提高效率。
 
+注意：最新的 14 版本的 node.js 可能会有兼容性问题，建议使用 12 版本的。当然，特别旧的也不成喔。
+
 ## 安装 hexo
 
 安装好 node.js 和 git 之后，即可安装 hexo 了：

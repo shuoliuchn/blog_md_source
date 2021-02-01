@@ -97,7 +97,7 @@
   - **Linux 操作命令：** [vim 的基本使用](linux\vim.md) | [Linux 基本的文件增删改查命令](linux\basic-command.md) | [Linux 常用命令](linux\common-command.md) | [编译安装 Python 3 并部署简单 django 项目](linux\py3-installation.md) | [Linux 的软件包管理工具 yum](linux\yum.md) | [解压缩包安装 JDK](linux\jdk-installation.md) | [Linux 磁盘挂载](linux\mount.md) 
   - **nginx 的安装和使用：** [Linux 软件安装流程 - nginx 的安装](linux\software-installation.md) | [nginx 介绍](linux\nginx-intro.md) | [nginx 虚拟主机功能](linux\nginx-virtual-server.md) | [nginx 的多虚拟主机配置](linux\nginx-multi-virtual-server.md) | [nginx 的访问日志功能](linux\nginx-log.md) | [nginx 的错误页面优化功能](linux\nginx-error-page.md) | [nginx 的反向代理功能](linux\nginx-reverse-proxy.md) | [nginx 负载均衡配置](linux\nginx-load-balance.md) | [crm 项目部署](linux\crm-build.md) | [Nginx 快速入门](linux\nginx-abc.md) | [Django 项目的部署](linux\django-proj-deploy.md) 
   - **分布式：** [MySQL 分布式存储](linux\mysql-distributed-storage.md) | [ZooKeeper 分布式调度](linux\distributed-scheduling.md) | [LVS + keepalived 实现负载均衡](linux\lvs-keepalived-lb.md) | [Redis 分布式缓存](linux\redis-distributed-cache.md) 
-  - **Docker：** [Docker 初识和安装](linux\docker-abc-install.md) | [docker 的镜像和容器](linux\docker-image-container.md) | [docker 的网络](linux\docker-network.md) | [docker 的持久化存储和数据共享](linux\docker-data-share.md) | [docker Compose 多容器部署](linux\docker-compose.md) |  [Docker 部署 GitLab](linux\docker-gitlab.md) | [Docker 部署 MySQL 5.7](linux\docker-mysql57.md) | [Docker 安装 Redis](linux\docker-redis.md) | [使用 Workover 自动更新 Docker 镜像和容器](linux\docker-watchover.md) | [Docker 安装 Gogs](linux\docker-gogs.md) | [Docker 安装 Resilio Sync](linux\docker-resilio-sync.md) | [Docker 安装 Aria2](linux\docker-aria2.md) 
+  - **Docker：** [Docker 初识和安装](linux\docker-abc-install.md) | [docker 的镜像和容器](linux\docker-image-container.md) | [docker 的网络](linux\docker-network.md) | [docker 的持久化存储和数据共享](linux\docker-data-share.md) | [docker Compose 多容器部署](linux\docker-compose.md) |  [Docker 部署 GitLab](linux\docker-gitlab.md) | [Docker 部署 MySQL 5.7](linux\docker-mysql57.md) | [Docker 安装 Redis](linux\docker-redis.md) | [使用 Workover 自动更新 Docker 镜像和容器](linux\docker-watchover.md) | [Docker 安装 Gogs](linux\docker-gogs.md) | [Docker 安装 Resilio Sync](linux\docker-resilio-sync.md) | [Docker 安装 Aria2](linux\docker-aria2.md) | [使用 Workover 自动更新 Docker 镜像和容器](linux\docker-watchover.md) 
   - **Linux 工具：** [安装和配置 Samba](linux\samba.md) 
   - **Python 和 pip：** [Python 的虚拟环境](linux\python-virtualenv.md) | [导出导入 Python 依赖](linux\python-requirements.md) | [pip 更换为国内源](linux\pip-source.md) 
 
@@ -158,7 +158,7 @@
 
 ## 个人博客
 
-- 使用 Markdown + Hexo 搭建个人博客： [使用 Markdown + Hexo 搭建个人博客系列简介](blog\hexo-introduction.md) | [Hexo 的安装](blog\hexo-installing.md) | [Hexo 的基本使用](blog\hexo-basic.md) 
+- 使用 Markdown + Hexo 搭建个人博客： [使用 Markdown + Hexo 搭建个人博客系列简介](blog\hexo-introduction.md) | [Hexo 的安装](blog\hexo-installing.md) | [Hexo 的基本使用](blog\hexo-basic.md) | [Hexo 的配置](blog\hexo-config.md) | [Hexo Next 主题的安装](blog\hexo-next-install.md) 
 
 
 
