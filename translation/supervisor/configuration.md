@@ -1,112 +1,87 @@
 # Supervisor 的配置文件
 
-The Supervisor configuration file is conventionally named `supervisord.conf`. It is used by both **supervisord** and **supervisorctl**. If either application is started without the `-c` option (the option which is used to tell the application the configuration filename explicitly), the application will look for a file named `supervisord.conf` within the following locations, in the specified order. It will use the first file it finds.
+Supervisor 的配置文件通常命名为 `supervisord.conf`。它同时被 **supervisord** 和 **supervisorctl** 使用。如果那两个应用启动时没有指定 `-c` 选项（该选项用来把配置文件名明确告诉给应用），该应用就会按列举的顺序从下面的位置中寻找一个名为 `supervisord.conf` 的文件。它将使用最先找到的文件。
 
-1. `../etc/supervisord.conf` (Relative to the executable)
-2. `../supervisord.conf` (Relative to the executable)
+1. `../etc/supervisord.conf`（相对于可执行文件的位置）
+2. `../supervisord.conf`（相对于可执行文件的位置）
 3. `$CWD/supervisord.conf`
 4. `$CWD/etc/supervisord.conf`
 5. `/etc/supervisord.conf`
-6. `/etc/supervisor/supervisord.conf` (since Supervisor 3.3.0)
+6. `/etc/supervisor/supervisord.conf`（Supervisor 3.3.0 以后）
 
-Note
+> 许多 Debian 和 Ubuntu 管理的 Supervisor 版本包含一个增加 `/etc/supervisor/supervisord.conf` 至搜寻路径的补丁。最早包含此路径的 Supervisor 的 PyPI 包是 Supervisor 3.3.0。
 
-Many versions of Supervisor packaged for Debian and Ubuntu included a patch that added `/etc/supervisor/supervisord.conf` to the search paths. The first PyPI package of Supervisor to include it was Supervisor 3.3.0.
+## 文件格式
 
-## File Format
+`supervisord.conf` 是一个 Windows 的 INI 风格（Python 的 ConfigParser）文件。它由节（由一个个的 `[header]` 表示）和节中的键/值对组成。这些节和它们允许指定的至如下所示。
 
-`supervisord.conf` is a Windows-INI-style (Python ConfigParser) file. It has sections (each denoted by a `[header]`) and key / value pairs within the sections. The sections and their allowable values are described below.
+### 环境变量
 
-### Environment Variables
+**supervisord** 启动时的环境存在的环境变量和可以在配置文件中以 Python 字符串表达式语法 `%(ENV_X)s` 使用：
 
-Environment variables that are present in the environment at the time that **supervisord** is started can be used in the configuration file using the Python string expression syntax `%(ENV_X)s`:
-
-```
+```ini
 [program:example]
 command=/usr/bin/example --loglevel=%(ENV_LOGLEVEL)s
 ```
 
-In the example above, the expression `%(ENV_LOGLEVEL)s` would be expanded to the value of the environment variable `LOGLEVEL`.
+在上面的例子中，`%(ENV_LOGLEVEL)s` 表达式将被 `LOGLEVEL` 环境变量替换。
 
-Note
-
-In Supervisor 3.2 and later, `%(ENV_X)s` expressions are supported in all options. In prior versions, some options support them, but most do not. See the documentation for each option below.
-
-## `[unix_http_server]` Section Settings
-
-The `supervisord.conf` file contains a section named `[unix_http_server]` under which configuration parameters for an HTTP server that listens on a UNIX domain socket should be inserted. If the configuration file has no `[unix_http_server]` section, a UNIX domain socket HTTP server will not be started. The allowable configuration values are as follows.
-
-### `[unix_http_server]` Section Values
-
-```
-file
-```
-
-> A path to a UNIX domain socket on which supervisor will listen for HTTP/XML-RPC requests. **supervisorctl** uses XML-RPC to communicate with **supervisord** over this port. This option can include the value `%(here)s`, which expands to the directory in which the **supervisord** configuration file was found.
+> 在 Supervisor 3.2 和更新的版本中，所有选项都支持 `%(ENV_X)s` 表达式。在从前的版本中，一些选项支持它们，不过大多数都不支持。参见下面的每个选项的文档。
 >
-> *Default*: None.
->
-> *Required*: No.
->
-> *Introduced*: 3.0
 
-Warning
+## `[unix_http_server]` 节的设置
 
-The example configuration output by **echo_supervisord_conf** uses `/tmp/supervisor.sock` as the socket file. That path is an example only and will likely need to be changed to a location more appropriate for your system. Some systems periodically delete older files in `/tmp`. If the socket file is deleted, **supervisorctl** will be unable to connect to **supervisord**.
+`supervisord.conf` 文件有一个名为 `[unix_http_server]` 的节，用来引入一个需要的监听 UNIX 域套接字 HTTP 服务器参数的配置。如果配置文件中没有 `[unix_http_server]` 节，就不会启动 UNIX 域套接字 HTTP 服务器。如下是允许使用的配置值。
 
-```
-chmod
-```
+### `[unix_http_server]` 节的值
 
-> Change the UNIX permission mode bits of the UNIX domain socket to this value at startup.
->
-> *Default*: `0700`
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### file
 
-```
-chown
-```
+一个 supervisor 将要监听 HTTP/XML-RPC 请求的 UNIX 域套接字。**supervisorctl** 在这个端口使用和 **supervisord** 交流。这个选项可以包括 `%(here)s` 格式的值，这将被替换成 **supervisord** 配置文件被发现的位置。
 
-> Change the user and group of the socket file to this value. May be a UNIX username (e.g. `chrism`) or a UNIX username and group separated by a colon (e.g. `chrism:wheel`).
->
-> *Default*: Use the username and group of the user who starts supervisord.
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：None
+- 是否必填：否
+- 最早引入版本：3.0
 
-```
-username
-```
+> **echo_supervisord_conf** 输出的配置示例使用 `/tmp/supervisor.sock` 作为套接字文件。那个路径仅仅是一个例子，很可能需要替换成一个更适合你系统的位置。有些系统会定期删除 `/tmp` 中较老的文件。如果套接字文件被删除了，**supervisorctl** 将无法连接到 **supervisord**。
 
-> The username required for authentication to this HTTP server.
->
-> *Default*: No username required.
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### chmod
 
-```
-password
-```
+启动时修改 UNIX 域套接字的 UNIX 权限模式位为这个值。
 
-> The password required for authentication to this HTTP server. This can be a cleartext password, or can be specified as a SHA-1 hash if prefixed by the string `{SHA}`. For example, `{SHA}82ab876d1387bfafe46cc1c8a2ef074eae50cb1d` is the SHA-stored version of the password “thepassword”.
->
-> Note that hashed password must be in hex format.
->
-> *Default*: No password required.
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：`0700`
+- 是否必填：否
+- 最早引入版本：3.0
 
-### `[unix_http_server]` Section Example
+#### chown
 
-```
+修改套接字文件的用户和组为这个值。可以是一个 UNIX 用户名（比如 `chrism`），也可以是用冒号分隔的 UNIX 用户名和组（比如 `chrism:wheel`）。
+
+- 默认值：使用启动 supervisord 的用户名和组
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### username
+
+这个 HTTP 服务器需要用来获取权限的用户名。
+
+- 默认值：不需要用户名
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### password
+
+这个 HTTP 服务器需要用来获取权限的密码。这可以是一个明文密码，也可以通过使用 `{SHA}` 前缀字符串的方式指定成 SHA-1 哈希值。比如，`{SHA}82ab876d1387bfafe46cc1c8a2ef074eae50cb1d` 是密码“thepassword”的 SHA 存储版本。
+
+注意哈希过的密码必须是十六进制格式。
+
+- 默认值：不需要密码
+- 是否必填：否
+- 最早引入版本：3.0
+
+### `[unix_http_server]` 节的示例
+
+```ini
 [unix_http_server]
 file = /tmp/supervisor.sock
 chmod = 0777
@@ -115,196 +90,141 @@ username = user
 password = 123
 ```
 
-## `[inet_http_server]` Section Settings
+## `[inet_http_server]` 节的设置
 
-The `supervisord.conf` file contains a section named `[inet_http_server]` under which configuration parameters for an HTTP server that listens on a TCP (internet) socket should be inserted. If the configuration file has no `[inet_http_server]` section, an inet HTTP server will not be started. The allowable configuration values are as follows.
+`supervisord.conf` 文件有一个名为 `[inet_http_server]` 的节，用来引入一个需要的监听 TCP（网络） 套接字 HTTP 服务器参数的配置。如果配置文件中没有 `[inet_http_server]` 节，就不会启动网络套接字 HTTP 服务器。如下是允许使用的配置值。
 
-Warning
-
-The inet HTTP server is not enabled by default. If you choose to enable it, please read the following security warning. The inet HTTP server is intended for use within a trusted environment only. It should only be bound to localhost or only accessible from within an isolated, trusted network. The inet HTTP server does not support any form of encryption. The inet HTTP server does not use authentication by default (see the `username=` and `password=` options). The inet HTTP server can be controlled remotely from **supervisorctl**. It also serves a web interface that allows subprocesses to be started or stopped, and subprocess logs to be viewed. **Never expose the inet HTTP server to the public internet.**
-
-### `[inet_http_server]` Section Values
-
-```
-port
-```
-
-> A TCP host:port value or (e.g. `127.0.0.1:9001`) on which supervisor will listen for HTTP/XML-RPC requests. **supervisorctl** will use XML-RPC to communicate with **supervisord** over this port. To listen on all interfaces in the machine, use `:9001` or `*:9001`. Please read the security warning above.
+> 默认情况下，网络 HTTP 服务器是未启用的。如果你选择启用它，请阅读以下安全警告。网络 HTTP 服务器仅应该在可靠的环境中启用。他应该仅绑定在本地 localhost 或仅可被隔离且可靠的网络访问。网络 HTTP 服务器不支持任何形式的加密。网络 HTTP 服务器默认情况下不使用任何权限认证（参见 `username=` 和 `password=` 选项）。网络 HTTP 服务器可以被 **supervisorctl** 远程操控。它也提供一个运行子进程启动和终止以及查看子进程日志的网络交互。**永远不要把网络 HTTP 服务器暴露到公共互联网上。**
 >
-> *Default*: No default.
->
-> *Required*: Yes.
->
-> *Introduced*: 3.0
 
-```
-username
-```
+### `[inet_http_server]` 节的值
 
-> The username required for authentication to this HTTP server.
->
-> *Default*: No username required.
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### port
 
-```
-password
-```
+一个 supervisor 用来监听 HTTP/XML-RPC 请求的 TCP 主机:端口 值，或者比如说 `127.0.0.1:9001`。**supervisorctl** 将在这个端口上使用 XML-RPC 和 **supervisord** 进行交流。若要监听此机器的所有接口，使用 `:9001` 或者 `*:9001`。请阅读上面的安全警告。
 
-> The password required for authentication to this HTTP server. This can be a cleartext password, or can be specified as a SHA-1 hash if prefixed by the string `{SHA}`. For example, `{SHA}82ab876d1387bfafe46cc1c8a2ef074eae50cb1d` is the SHA-stored version of the password “thepassword”.
->
-> Note that hashed password must be in hex format.
->
-> *Default*: No password required.
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：无
+- 是否必填：是
+- 最早引入版本：3.0
 
-### `[inet_http_server]` Section Example
+#### username
 
-```
+这个 HTTP 服务器需要用来获取权限的用户名。
+
+- 默认值：不需要用户名
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### password
+
+这个 HTTP 服务器需要用来获取权限的密码。这可以是一个明文密码，也可以通过使用 `{SHA}` 前缀字符串的方式指定成 SHA-1 哈希值。比如，`{SHA}82ab876d1387bfafe46cc1c8a2ef074eae50cb1d` 是密码“thepassword”的 SHA 存储版本。
+
+注意哈希过的密码必须是十六进制格式。
+
+- 默认值：不需要密码
+- 是否必填：否
+- 最早引入版本：3.0
+
+### `[inet_http_server]` 节的示例
+
+```ini
 [inet_http_server]
 port = 127.0.0.1:9001
 username = user
 password = 123
 ```
 
-## `[supervisord]` Section Settings
+## `[supervisord]` 节的设置
 
-The `supervisord.conf` file contains a section named `[supervisord]` in which global settings related to the **supervisord** process should be inserted. These are as follows.
+`supervisord.conf` 文件有一个名为 `[inet_http_server]` 的节，用来引入关于 **supervisord** 进程的全局配置。如下所示。
 
-### `[supervisord]` Section Values
+### `[supervisord]` 节的值
 
-```
-logfile
-```
+#### logfile
 
-> The path to the activity log of the supervisord process. This option can include the value `%(here)s`, which expands to the directory in which the supervisord configuration file was found.
->
-> Note
->
-> If `logfile` is set to a special file like `/dev/stdout` that is not seekable, log rotation must be disabled by setting `logfile_maxbytes = 0`.
->
-> *Default*: `$CWD/supervisord.log`
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+supervisord 进程活动日志的路径。这个选项可以包括 `%(here)s` 值，它会被替换成配置文件被找到的目录。
 
-```
-logfile_maxbytes
-```
+> 如果 `logfile` 设置成像 `/dev/stdout` 的特殊文件是没办法找到的，要想禁用滚动刷日志只能通过设置 `logfile_maxbytes = 0`。
 
-> The maximum number of bytes that may be consumed by the activity log file before it is rotated (suffix multipliers like “KB”, “MB”, and “GB” can be used in the value). Set this value to 0 to indicate an unlimited log size.
->
-> *Default*: 50MB
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：`$CWD/supervisord.log`
+- 是否必填：否
+- 最早引入版本：3.0
 
-```
-logfile_backups
-```
+#### logfile_maxbytes
 
-> The number of backups to keep around resulting from activity log file rotation. If set to 0, no backups will be kept.
->
-> *Default*: 10
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+在滚动刷日志之前活动日志文件所能占用的最大字节数（这个值可以使用像“KB”、“MB”和“GB”的单位）。把这个值设置成 0 意味着不限制日志容量。
 
-```
-loglevel
-```
+- 默认值：50MB
+- 是否必填：否
+- 最早引入版本：3.0
 
-> The logging level, dictating what is written to the supervisord activity log. One of `critical`, `error`, `warn`, `info`, `debug`, `trace`, or `blather`. Note that at log level `debug`, the supervisord log file will record the stderr/stdout output of its child processes and extended info info about process state changes, which is useful for debugging a process which isn’t starting properly. See also: [*Activity Log Levels*](http://supervisord.org/logging.html#activity-log-levels).
->
-> *Default*: info
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### logfile_backups
 
-```
-pidfile
-```
+在活动日志滚动刷新产生文件保存的备份数目。如果设置为 0，则不会保存备份。
 
-> The location in which supervisord keeps its pid file. This option can include the value `%(here)s`, which expands to the directory in which the supervisord configuration file was found.
->
-> *Default*: `$CWD/supervisord.pid`
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：10
+- 是否必填：否
+- 最早引入版本：3.0
 
-```
-umask
-```
+#### loglevel
 
-> The [*umask*](http://supervisord.org/glossary.html#term-umask) of the supervisord process.
->
-> *Default*: `022`
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+日志级别，决定了将要写入 supervisord 活动日志的内容。可以是如下选项之一： `critical`、`error`、`warn`、`info`、`debug`、`trace` 或 `blather`。注意在 `debug` 日志级别下，supervisord 日志文件将会记录它子进程的 stderr/stdout 输出和关于进程状态改变的额外信息，这对调试一个没有正常启动的进程十分有用。参见：[*活动日志级别*](http://supervisord.org/logging.html#activity-log-levels)。
 
-```
-nodaemon
-```
+- 默认值：info
+- 是否必填：否
+- 最早引入版本：3.0
 
-> If true, supervisord will start in the foreground instead of daemonizing.
->
-> *Default*: false
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### pidfile
 
-```
-silent
-```
+supervisord 存放 pid 文件的位置。这个选项可以包括 `%(here)s` 格式的值，这将被替换成 supervisord 配置文件被发现的位置。
 
-> If true and not daemonized, logs will not be directed to stdout.
->
-> *Default*: false
->
-> *Required*: No.
->
-> *Introduced*: 4.2.0
+- 默认值：`$CWD/supervisord.pid`
+- 是否必填：否
+- 最早引入版本：3.0
 
-```
-minfds
-```
+#### umask
 
-> The minimum number of file descriptors that must be available before supervisord will start successfully. A call to setrlimit will be made to attempt to raise the soft and hard limits of the supervisord process to satisfy `minfds`. The hard limit may only be raised if supervisord is run as root. supervisord uses file descriptors liberally, and will enter a failure mode when one cannot be obtained from the OS, so it’s useful to be able to specify a minimum value to ensure it doesn’t run out of them during execution. These limits will be inherited by the managed subprocesses. This option is particularly useful on Solaris, which has a low per-process fd limit by default.
->
-> *Default*: 1024
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+supervisord 进程的 [*umask*](http://supervisord.org/glossary.html#term-umask)。
 
-```
-minprocs
-```
+- 默认值：`022`
+- 是否必填：否
+- 最早引入版本：3.0
 
-> The minimum number of process descriptors that must be available before supervisord will start successfully. A call to setrlimit will be made to attempt to raise the soft and hard limits of the supervisord process to satisfy `minprocs`. The hard limit may only be raised if supervisord is run as root. supervisord will enter a failure mode when the OS runs out of process descriptors, so it’s useful to ensure that enough process descriptors are available upon **supervisord** startup.
->
-> *Default*: 200
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### nodaemon
 
-```
-nocleanup
-```
+如果设置成 true，supervisord 将会在前台运行，而非以守护进程的形式。
+
+- 默认值：false
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### silent
+
+如果设置成 true 且以非守护进程形式执行，日志将不会指向标准输出（stdout）。
+
+- 默认值：false
+- 是否必填：否
+- 最早引入版本：4.2.0
+
+#### minfds
+
+supervisord 能够成功启动所需要的最小文件描述符数目。为了试图让 supervisord 进程的软硬限制提高到适合 `minfds` 的水平，将会调用 setrlimit 方法。硬限制或许只有当以 root 运行时才会提高。supervisord 会频繁使用文件描述符，如果不能从操作系统中获取时会进入失败模式，所以能指定一个确保程序运行过程中不会用光它们的最小值是很有用的。这些限制会被它管理的子进程继承。这个选项在 Solaris 上极其有用，因为它默认每个进程的 fd 限制都很小。
+
+- 默认值：1024
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### minprocs
+
+supervisord 能够成功启动所需要的最小进程描述符数目。为了试图让 supervisord 进程的软硬限制提高到适合 `minprocs` 的水平，将会调用 setrlimit 方法。硬限制或许只有当以 root 运行时才会提高。如果操作系统用光了进程描述符，supervisord 将会进入失败模式，所以在 **supervisord** 启动时确保有足够的进程描述符时很有用的。
+
+- 默认值：200
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### nocleanup
+
+阻止 supervisord 在启动的时候清理
 
 > Prevent supervisord from clearing any existing `AUTO` child log files at startup time. Useful for debugging.
 >
@@ -1272,5 +1192,3 @@ supervisor.rpcinterface_factory
 supervisor.rpcinterface_factory = my.package:make_another_rpcinterface
 retries = 1
 ```
-
-[Next ](http://supervisord.org/subprocess.html)[ Previous](http://supervisord.org/running.html)
