@@ -224,93 +224,64 @@ supervisord 能够成功启动所需要的最小进程描述符数目。为了�
 
 #### nocleanup
 
-阻止 supervisord 在启动的时候清理
+阻止 supervisord 在启动的时候清理任何存在的 `AUTO` 子日志文件。这个在调试的时候很有用。
 
-> Prevent supervisord from clearing any existing `AUTO` child log files at startup time. Useful for debugging.
->
-> *Default*: false
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：false
+- 是否必填：否
+- 最早引入版本：3.0
 
-```
-childlogdir
-```
+#### childlogdir
 
-> The directory used for `AUTO` child log files. This option can include the value `%(here)s`, which expands to the directory in which the **supervisord** configuration file was found.
->
-> *Default*: value of Python’s `tempfile.get_tempdir()`
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+`AUTO` 子日志文件使用的路径。这个选项可以包括 `%(here)s` 格式的值，这将被替换成 **supervisord** 配置文件被发现的位置。
 
-```
-user
-```
+- 默认值：Python 的 `tempfile.get_tempdir()` 值
+- 是否必填：否
+- 最早引入版本：3.0
 
-> Instruct **supervisord** to switch users to this UNIX user account before doing any meaningful processing. The user can only be switched if **supervisord** is started as the root user.
->
-> *Default*: do not switch users
->
-> *Required*: No.
->
-> *Introduced*: 3.0
->
-> *Changed*: 3.3.4. If **supervisord** can’t switch to the specified user, it will write an error message to `stderr` and then exit immediately. In earlier versions, it would continue to run but would log a message at the `critical` level.
+#### user
 
-```
-directory
-```
+指示 **supervisord** 在执行任何有意义的进程之前，将用户切换为这个 UNIX user 账号。只有当 **supervisord** 以 root 用户启动的时候才能切换用户。
 
-> When **supervisord** daemonizes, switch to this directory. This option can include the value `%(here)s`, which expands to the directory in which the **supervisord** configuration file was found.
->
-> *Default*: do not cd
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：不切换用户
+- 是否必填：否
+- 最早引入版本：3.0
+- 变更历史：3.3.4 版本。如果 **supervisord** 不能切换到指定的用户，将会在 `stderr` 写一条错误信息然后立即退出。在早期版本中，仍然会继续执行，不过会记录一条 `critical` 级别的日志信息。
 
-```
-strip_ansi
-```
+#### directory
 
-> Strip all ANSI escape sequences from child log files.
->
-> *Default*: false
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+当 **supervisord** 以守护进程运行的时候，切换到这个路径。这个选项可以包括 `%(here)s` 格式的值，这将被替换成 **supervisord** 配置文件被发现的位置。
 
-```
-environment
-```
+- 默认值：不切换路径
+- 是否必填：否
+- 最早引入版本：3.0
 
-> A list of key/value pairs in the form `KEY="val",KEY2="val2"` that will be placed in the **supervisord** process’ environment (and as a result in all of its child process’ environments). This option can include the value `%(here)s`, which expands to the directory in which the supervisord configuration file was found. Values containing non-alphanumeric characters should be quoted (e.g. `KEY="val:123",KEY2="val,456"`). Otherwise, quoting the values is optional but recommended. To escape percent characters, simply use two. (e.g. `URI="/first%%20name"`) **Note** that subprocesses will inherit the environment variables of the shell used to start **supervisord** except for the ones overridden here and within the program’s `environment` option. See [*Subprocess Environment*](http://supervisord.org/subprocess.html#subprocess-environment).
->
-> *Default*: no values
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### strip_ansi
 
-```
-identifier
-```
+从子日志文件中删除所有 ANSI 转义序列。
 
-> The identifier string for this supervisor process, used by the RPC interface.
->
-> *Default*: supervisor
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：false
+- 是否必填：否
+- 最早引入版本：3.0
 
-### `[supervisord]` Section Example
+#### environment
 
-```
+一串 `KEY="val",KEY2="val2"` 形式的键/值对将会配置到 **supervisord** 进程的环境中（也会导致它所有的子进程环境中有这些变量）。这个选项可以包括 `%(here)s` 格式的值，这将被替换成 supervisord 配置文件被发现的位置。包含非数字之母符号的值需要用引号引起来（比如 `KEY="val:123",KEY2="val,456"`）。在其他情况下不必非要把值引起来，但还是建议用引号引一下。要转义百分号，只需使用两个即可（比如 `URI="/first%%20name"`）。**注意**子进程将继承启动 **supervisord** 时使用的终端的环境变量，除非它们被此处或 program 节的 `environment` 选项覆盖掉。参见[子进程环境](subprocess.md#子进程环境)。
+
+- 默认值：无值
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### identifier
+
+此 supervisor 进程的描述符字符串，RPC 接口会用到。
+
+- 默认值：supervisor
+- 是否必填：否
+- 最早引入版本：3.0
+
+### `[supervisord]` 节的示例
+
+```ini
 [supervisord]
 logfile = /tmp/supervisord.log
 logfile_maxbytes = 50MB
@@ -330,75 +301,55 @@ strip_ansi = false
 environment = KEY1="value1",KEY2="value2"
 ```
 
-## `[supervisorctl]` Section Settings
+## `[supervisorctl]` 节的设置
 
-> The configuration file may contain settings for the **supervisorctl** interactive shell program. These options are listed below.
+配置文件中可以包括 **supervisorctl** 交互终端程序的设置。这些选项如下所示。
 
-### `[supervisorctl]` Section Values
+### `[supervisorctl]` 节的值
 
-```
-serverurl
-```
+#### serverurl
 
-> The URL that should be used to access the supervisord server, e.g. `http://localhost:9001`. For UNIX domain sockets, use `unix:///absolute/path/to/file.sock`.
->
-> *Default*: `http://localhost:9001`
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+访问 supervisord 服务器所需使用的 URL，比如 `http://localhost:9001`。对于 UNIX 域套接字，使用 `unix:///absolute/path/to/file.sock`。
 
-```
-username
-```
+- 默认值： `http://localhost:9001`
+- 是否必填：否
+- 最早引入版本：3.0
 
-> The username to pass to the supervisord server for use in authentication. This should be same as `username` from the supervisord server configuration for the port or UNIX domain socket you’re attempting to access.
->
-> *Default*: No username
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### username
 
-```
-password
-```
+通过 supervisord 服务器权限认证所需的用户名。这应该和你试图访问的 supervisord 服务器的端口或 UNIX 域套接字配置的 `username` 相同。
 
-> The password to pass to the supervisord server for use in authentication. This should be the cleartext version of `password` from the supervisord server configuration for the port or UNIX domain socket you’re attempting to access. This value cannot be passed as a SHA hash. Unlike other passwords specified in this file, it must be provided in cleartext.
->
-> *Default*: No password
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+- 默认值：无用户名
+- 是否必填：否
+- 最早引入版本：3.0
 
-```
-prompt
-```
+#### password
 
-> String used as supervisorctl prompt.
->
-> *Default*: `supervisor`
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+通过 supervisord 服务器权限认证所需的密码。这应该和你试图访问的 supervisord 服务器的端口或 UNIX 域套接字配置的明文 `password` 相同。这个值不能以 SHA 哈希值传递。与本文件中声明的其他密码不同，这里必须提供明文密码。
 
-```
-history_file
-```
+- 默认值：无密码
+- 是否必填：否
+- 最早引入版本：3.0
 
-> A path to use as the `readline` persistent history file. If you enable this feature by choosing a path, your supervisorctl commands will be kept in the file, and you can use readline (e.g. arrow-up) to invoke commands you performed in your last supervisorctl session.
->
-> *Default*: No file
->
-> *Required*: No.
->
-> *Introduced*: 3.0a5
+#### prompt
 
-### `[supervisorctl]` Section Example
+supervisorctl 使用的提示字符串。
 
-```
+- 默认值：`supervisor`
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### history_file
+
+`readline` 持久化历史文件的路径。如果你通过指定一个路径启用了此特性，你的 supervisorctl 命令将被保存在该文件中，而且你可以使用 readline（比如上箭头）调用你上一个 supervisorctl 回话中执行过的命令。
+
+- 默认值：无文件
+- 是否必填：否
+- 最早引入版本：3.0a5
+
+### `[supervisorctl]` 节的示例
+
+```ini
 [supervisorctl]
 serverurl = unix:///tmp/supervisor.sock
 username = chris
@@ -406,77 +357,54 @@ password = 123
 prompt = mysupervisor
 ```
 
+## `[program:x]` 节的设置
 
+配置文件中必须有一个或多个 `program` 节，只有这样 supervisord 才能知道它应该开启和控制哪些程序。它头部的值是一个复合值。它以单词“program”开头，然后是一个英文的冒号，最后是程序的名字。形如的 `[program:foo]` 头部值表示的是一个名为“foo”的程序。这个名字在管理由此配置文件生成的进程的客户端应用中使用。创建一个没有名字的 `program` 节是错误的。名字中一定不能含有冒号和括号这样的字符。其他值可以通过使用 `%(program_name)s` 字符串表达式来指代程序名。
 
-## `[program:x]` Section Settings
-
-The configuration file must contain one or more `program` sections in order for supervisord to know which programs it should start and control. The header value is composite value. It is the word “program”, followed directly by a colon, then the program name. A header value of `[program:foo]` describes a program with the name of “foo”. The name is used within client applications that control the processes that are created as a result of this configuration. It is an error to create a `program` section that does not have a name. The name must not include a colon character or a bracket character. The value of the name is used as the value for the `%(program_name)s` string expression expansion within other values where specified.
-
-Note
-
-A `[program:x]` section actually represents a “homogeneous process group” to supervisor (as of 3.0). The members of the group are defined by the combination of the `numprocs` and `process_name` parameters in the configuration. By default, if numprocs and process_name are left unchanged from their defaults, the group represented by `[program:x]` will be named `x` and will have a single process named `x` in it. This provides a modicum of backwards compatibility with older supervisor releases, which did not treat program sections as homogeneous process group definitions.
-
-But for instance, if you have a `[program:foo]` section with a `numprocs` of 3 and a `process_name` expression of `%(program_name)s_%(process_num)02d`, the “foo” group will contain three processes, named `foo_00`, `foo_01`, and `foo_02`. This makes it possible to start a number of very similar processes using a single `[program:x]` section. All logfile names, all environment strings, and the command of programs can also contain similar Python string expressions, to pass slightly different parameters to each process.
-
-### `[program:x]` Section Values
-
-```
-command
-```
-
-> The command that will be run when this program is started. The command can be either absolute (e.g. `/path/to/programname`) or relative (e.g. `programname`). If it is relative, the supervisord’s environment `$PATH` will be searched for the executable. Programs can accept arguments, e.g. `/path/to/program foo bar`. The command line can use double quotes to group arguments with spaces in them to pass to the program, e.g. `/path/to/program/name -p "foo bar"`. Note that the value of `command` may include Python string expressions, e.g. `/path/to/programname --port=80%(process_num)02d` might expand to `/path/to/programname --port=8000` at runtime. String expressions are evaluated against a dictionary containing the keys `group_name`, `host_node_name`, `program_name`, `process_num`, `numprocs`, `here` (the directory of the supervisord config file), and all supervisord’s environment variables prefixed with `ENV_`. Controlled programs should themselves not be daemons, as supervisord assumes it is responsible for daemonizing its subprocesses (see [*Nondaemonizing of Subprocesses*](http://supervisord.org/subprocess.html#nondaemonizing-of-subprocesses)).
+> 一个 `[program:x]` 节实际上指代的是一个 supervisor 的“同质进程组”（在 3.0 版本中）。组中的成员由配置中的 `numprocs` 和 `process_name` 参数联合定义。默认情况下，如果 numprocs 和 process_name 没有改变其默认值，由 `[program:x]` 表示的组将被命名为 `x`，而且在其中会有一个名为 `x` 的单个的进程。这给老一点的 supervisor 发行版提供一点向上兼容性，因为从前没有把 program 节定义为同质进程组。
 >
-> Note
->
-> The command will be truncated if it looks like a config file comment, e.g. `command=bash -c 'foo ; bar'` will be truncated to `command=bash -c 'foo`. Quoting will not prevent this behavior, since the configuration file reader does not parse the command like a shell would.
->
-> *Default*: No default.
->
-> *Required*: Yes.
->
-> *Introduced*: 3.0
->
-> *Changed*: 4.2.0. Added support for the `numprocs` expansion.
+> 不过比如说，如果你有一个 `[program:foo]` 节，把 `numprocs` 值配置为 3，把 `process_name` 值配置为 `%(program_name)s_%(process_num)02d` 表达式，那么“foo”组将包含三个进程，名字分别为 `foo_00`、`foo_01` 和 `foo_02`。这使得仅使用一个 `[program:x]` 节创建很多相似的进程成为可能。所有的日志文件名，所有的环境字符串，还有程序的命令也都可以包括类似的 Python 字符串表达式，从而给每个进程传递略微不同的参数。
 
-```
-process_name
-```
+### `[program:x]` 节的值
 
-> A Python string expression that is used to compose the supervisor process name for this process. You usually don’t need to worry about setting this unless you change `numprocs`. The string expression is evaluated against a dictionary that includes `group_name`, `host_node_name`, `process_num`, `program_name`, and `here` (the directory of the supervisord config file).
->
-> *Default*: `%(program_name)s`
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### command
 
-```
-numprocs
-```
+此程序启动时将会执行的命令。命令可以是绝对的（比如 `/path/to/programname`）或相对的（比如 `programname`）。如果使用相对命令，将会在 supervisord 的 `$PATH` 环境变量中寻找可执行文件。程序可以接受参数，比如 `/path/to/program foo bar`。命令行可以把带有空格的一组参数使用双引号传递给程序，比如 `/path/to/program/name -p "foo bar"`。注意 `command` 的值可以包含 Python 字符串表达式，比如 `/path/to/programname --port=80%(process_num)02d` 在运行时会展开为 `/path/to/programname --port=8000`。字符串表达式可以是包含键 `group_name`、`host_node_name`、`program_name`、`process_num`、`numprocs`、`here`（supervisord 配置文件的路径）的字典和所有以 `ENV_` 开头的 supervisord 的环境变量。被控制的程序本身不能是守护进程，因为 supervisord 认为它是其子进程的守护进程（参见[非守护子进程](subprocess.md#非守护子进程)）。
 
-> Supervisor will start as many instances of this program as named by numprocs. Note that if numprocs > 1, the `process_name` expression must include `%(process_num)s` (or any other valid Python string expression that includes `process_num`) within it.
->
-> *Default*: 1
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+> 如果命令看起来像是配置文件注释，它将会被截断，比如 `command=bash -c 'foo ; bar'` 会被截断成 `command=bash -c 'foo`。引号也无法阻止这个行为，因为配置文件加载器不会像 shell 那样解析命令。
 
-```
-numprocs_start
-```
+- 默认值：无默认值
+- 是否必填：是
+- 最早引入版本：3.0
+- 变更历史：4.2.0 版本。增加对 `numprocs` 展开的支持。
 
-> An integer offset that is used to compute the number at which `numprocs` starts.
->
-> *Default*: 0
->
-> *Required*: No.
->
-> *Introduced*: 3.0
+#### process_name
 
-```
-priority
-```
+用来构成这个进程的 supervisor 进程名的 Python 字符串表达式。如果你不修改 `numprocs` 那么一般是不用设置这一项的。字符串表达式可以是包含键 `group_name`、`host_node_name`、`program_name`、`process_num`、`numprocs`、`here`（supervisord 配置文件的路径）的字典。
+
+- 默认值：`%(program_name)s`
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### numprocs
+
+Supervisor 将会启动和 numprocs 指明的数目一样多的程序实例。注意如果numprocs > 1，那么 `process_name` 表达式必须包含 `%(process_num)s`（或者其他任何有效的包含 `process_num` 的 Python 字符串表达式）。
+
+- 默认值：1
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### numprocs_start
+
+用来计算 `numprocs` 从哪个数字开始的一个整数偏移量。
+
+- 默认值：0
+- 是否必填：否
+- 最早引入版本：3.0
+
+#### priority
+
+程序在启动和终止顺序上的相对优先级。较低的优先级意味着在各种客户端中使用聚合命令（比如：“start all”/“stop all”）启动时会先启动后。
 
 > The relative priority of the program in the start and shutdown ordering. Lower priorities indicate programs that start first and shut down last at startup and when aggregate commands are used in various clients (e.g. “start all”/”stop all”). Higher priorities indicate programs that start last and shut down first.
 >
