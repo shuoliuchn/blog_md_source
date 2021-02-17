@@ -78,9 +78,9 @@ sudo samba restart
 
 注：samba默认开机自启，无需为重启担心。
 
-## 访问共享文件：
+## 访问共享文件
 
-### Windows 系统：
+### Windows 系统
 
 单次访问：
 
@@ -106,16 +106,31 @@ sudo samba restart
 
 [![img](samba.assets/1257172-20190730102923387-96414979.png)](https://img2018.cnblogs.com/blog/1257172/201907/1257172-20190730102923387-96414979.png)
 
-### Mac OS：
+### Mac OS
 
 首先声明，这个方法是网上看到的，估计可行。但是我没有Mac，没有亲自操作，具体细节还是不懂的。
 
 打开Finder，然后快捷键cmd+K，在服务器地址中填写 smb://192.168.0.105/public ，老样子，其中的 192.168.0.105 需要替换为你的树莓派的ip地址。然后点击连接即可。
 
-### iOS：
+### iOS
 
 在iPhone或者iPad上面下载FileExplorer应用。打开应用，点击右上角的+，然后选择Linux。然后输入ip还有账户密码，就可以远程访问了。
 
 另外一款名叫nPlayer的app也是可以用的。
 
 还有很多类似的app，就不赘述了。不过基本上没有发现免费的。
+
+### Linux
+
+查看当前有哪些可用的 samba 服务（samba 默认端口 445，如无变化可以省略）：
+
+```bash
+smbclient -L 127.0.0.1 -p 445 -U 用户名%密码
+```
+
+挂载 samba 到本地文件夹（参数写的比较全，有些不一定非要指定）：
+
+```bash
+sudo mount -t cifs -o username=用户名,password=密码,port=445,uid=1000,gid=1000,rw,dir_mode=0777,file_mode=0777 //server-ip/public /local/directory/
+```
+

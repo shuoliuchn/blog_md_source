@@ -52,7 +52,7 @@
 - Django 基础
   - **HTTP 和 Web 框架相关概念：** [HTTP 协议](django\django-http.md) | [动手搭建 Web 框架深入了解 Web 框架的本质](django\django-web-framework.md) 
   - **Django 的基本用法：** [Django 初识](django\django-quickstart.md) | [Django 视图 view](django\django-views.md) | [Django 模板 template](django\django-template.md) | [Django URL 路由](django\django-url.md) | [Django 模型 model 数据库 ORM 单表操作](django\django-orm-single.md) | [Django ORM 多表增删改查](django\django-orm-multiple.md) | [ORM 执行原生 SQL 语句](django\django-sql.md) | [ORM 事务和锁](django\django-transaction-lock.md) | [Django 使用 ajax 和通过 csrf 认证的三种方式](django\django-ajax.md) | [Django 通过 form 表单和 ajax 上传文件](django\django-file-upload.md) | [JsonResponse](django\django-jsonresponse.md) | [Django 操作 Cookie 和 session](django\django-cookie.md) | [Django 中间件和请求的生命周期](django\django-middleware.md) | [Django 的表单 form 组件](django\django-form.md) | [Django ModelForm 模型表单组件](django\django-modelform.md) 
-  - **Django 其他使用技巧：** [Django 外部脚本调用 models 数据库](django\django-script.md) | [解决 Django 自定义用户模型之前就已经数据迁移的 BUG](django\django-migration-bug.md) 
+  - **Django 其他使用技巧：** [Django 外部脚本调用 models 数据库](django\django-script.md) | [解决 Django 自定义用户模型之前就已经数据迁移的 BUG](django\django-migration-bug.md) | [解决 Django 项目中启动多进程报错的问题](django\django-multiprocess.md) 
 - Django REST Framework
   - **概述：** [前后端分离相关概念](django\drf-front-rear-sep.md) | [DRF 环境安装与配置](django\drf-envir-build.md) 
   - **序列化器 Serializer：** [序列化器 Serializer](django\drf-serializer.md) | [模型类序列化器 ModelSerializer](django\drf-modelserializer.md) | [序列化](django\drf-serialization.md) | [反序列化](django\drf-deserialization.md) 
@@ -141,6 +141,12 @@
 - 机器学习基础
   - **背景和理论：** [机器学习概述](machine-learning\ml-abstract.md) | [特征工程](machine-learning\feature-engineering.md) | [sklearn 的数据集](machine-learning\sklearn-dataset.md) | [机器学习基础](machine-learning\ml-basic.md) 
   - **机器学习算法：** [K-近邻算法和交叉验证](machine-learning\knn-cross.md) | [线性回归和回归算法的评价指标](machine-learning\linear-regression.md) | [多项式回归和过拟合与欠拟合的处理](machine-learning\polynomial.md) | [朴素贝叶斯算法](machine-learning\naive-bayes.md) | [逻辑斯蒂回归](machine-learning\logistic-regression.md) | [分类模型的评价指标](machine-learning\classification-evaluation.md) | [神经网络范式](machine-learning\neural-network.md) 
+- [**NLP自然语言处理【黑马程序员】**](https://www.bilibili.com/video/BV17y4y1m737)
+  - **背景和理论：** [自然语言处理入门](machine-learning\nlp-abc.md) | [云服务器使用入门](machine-learning\cloud-server-abc.md) | [HMM与CRF](machine-learning\hmm-crf-abc.md) 
+  - **Pytorch 基础：** [Pytorch 基本使用](machine-learning\pytorch-basic.md) | [Pytorch 中的 autograd 自动求导](machine-learning\pytorch-autograd.md) | [使用 Pytorch 构建神经网络](machine-learning\pytorch-nn.md) | [使用 Pytorch 构建分类器](machine-learning\pytorch-classifier.md) 
+  - **数据准备：** [文本预处理](machine-learning\preprocessing-text-data.md) | [新闻主题分类任务](machine-learning\news-theme-classifier.md) 
+  - **RNN：** [认识RNN模型](machine-learning\rnn-abc.md) | [RNN经典案例](machine-learning\rnn-examples.md) 
+  - **Transformer：** [Transformer背景介绍](machine-learning\transformer-bg.md) | [Transformer架构解析](machine-learning\transformer-build.md) | [Transformer经典案例](machine-learning\transformer-example.md) 
 
 
 
